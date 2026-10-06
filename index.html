@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://ycyxyd.github.io/steuer-rechner/">
+<meta property="og:title" content="Steuer-Rechner 2026 – kostenlos">
+<meta property="og:description" content="13 kostenlose Rechner fuer Freiberufler, Kleinunternehmer und Vermieter: Fristen, UStVA, § 19 UStG, EÜR, Homeoffice-Pauschale, Entfernungspauschale, Gewerbesteuer, AfA und mehr. Keine Steuerberatung.">
+<meta property="og:type" content="website">
+<title>Steuer-Fristen &amp; Kleinunternehmer-Rechner 2026 – kostenlos (ohne Tracking)</title>
+<meta name="description" content="Kostenlose Rechner: Steuererklärung-Fristen, Umsatzsteuer-Voranmeldung (§ 18 UStG), Kleinunternehmer-Grenzen (§ 19 UStG), Gewinn/EÜR (§ 4 Abs. 3 EStG), Umsatzsteuer 19/7 % (§ 12 UStG), Reisekosten (§ 9 Abs. 4a EStG). Läuft offline im Browser, keine Datenübertragung.">
+<style>
+  :root{
+    --primary:#cc785c; --primary-active:#a9583e; --primary-disabled:#e6dfd8;
+    --ink:#141413; --body:#3d3d3a; --muted:#6c6a64; --muted-soft:#8e8b82;
+    --hairline:#e6dfd8; --canvas:#faf9f5; --surface-soft:#f5f0e8; --surface-card:#efe9de;
+    --success:#5db872; --warning:#d4a017; --error:#c64545;
+    --r-md:8px; --r-lg:12px; --r-pill:9999px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--canvas);color:var(--body);
+       font:16px/1.55 "StyreneB","Inter",-apple-system,"Segoe UI",Roboto,sans-serif;}
+  .wrap{max-width:820px;margin:0 auto;padding:48px 24px 72px}
+  h1{font-family:"Copernicus","Tiempos Headline",Georgia,serif;font-weight:400;
+     font-size:40px;line-height:1.1;letter-spacing:-1px;color:var(--ink);margin:0 0 12px}
+  h2{font-family:"Copernicus","Tiempos Headline",Georgia,serif;font-weight:400;
+     font-size:26px;line-height:1.2;color:var(--ink);margin:40px 0 8px}
+  .lead{font-size:17px;color:var(--muted);margin:0 0 8px}
+  .card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:var(--r-lg);
+        padding:20px 22px;margin:16px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px}
+  input,select{width:100%;padding:10px 12px;border:1px solid var(--hairline);border-radius:var(--r-md);
+        background:#fff;color:var(--ink);font:15px/1.3 inherit}
+  input:focus,select:focus{outline:2px solid var(--primary);outline-offset:1px}
+  .btn{display:inline-block;background:var(--primary);color:#fff;border:0;border-radius:var(--r-md);
+       padding:12px 20px;font:500 15px/1 inherit;cursor:pointer;margin-top:8px}
+  .btn:hover{background:var(--primary-active)}
+  .out{margin-top:18px}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--hairline)}
+  .row:last-child{border-bottom:0}
+  .row .k{color:var(--muted)}
+  .row .v{font-weight:500;color:var(--ink);text-align:right}
+  .badge{display:inline-block;padding:3px 10px;border-radius:var(--r-pill);font-size:12.5px;font-weight:500}
+  .b-ok{background:rgba(93,184,114,.18);color:#256537}
+  .b-warn{background:rgba(212,160,23,.20);color:#7a5b00}
+  .b-err{background:rgba(198,69,69,.16);color:#8f2b2b}
+  ul.hints{margin:10px 0 0;padding-left:20px}
+  ul.hints li{margin:6px 0;font-size:14.5px}
+  .cta{background:var(--canvas);border:1px dashed var(--hairline);border-radius:var(--r-lg);padding:18px 20px;margin-top:34px}
+  .cta a{color:var(--primary-active);font-weight:500;text-decoration:none;display:block;margin:8px 0}
+  .cta a:hover{text-decoration:underline}
+  .fine{font-size:12.5px;color:var(--muted-soft);line-height:1.5}
+  .disc{background:var(--surface-soft);border-left:3px solid var(--primary);border-radius:0 var(--r-md) var(--r-md) 0;
+        padding:14px 16px;font-size:13.5px;color:var(--muted);margin-top:30px}
+  .top{display:inline-block;font:500 12px/1 inherit;letter-spacing:1.5px;text-transform:uppercase;
+       color:var(--primary-active);margin-bottom:14px}
+  mark{background:rgba(255,196,0,.35);padding:0 2px;border-radius:3px}
+  @media print{.btn,.top{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="top">Arbeitshilfe &middot; Stand Oktober 2026</span>
+  <h1>Steuer-Fristen &amp; Kleinunternehmer-Rechner</h1>
+  <p class="lead">Fristen für Steuererklärung und Umsatzsteuer-Voranmeldung berechnen, &sect;&nbsp;19 UStG prüfen &ndash; kostenlos, offline, ohne Konto, ohne Tracking.</p>
+
+  <div class="disc" id="dsgvo">
+    <strong>Datenschutz (DSGVO):</strong> Diese Seite rechnet ausschließlich in deinem Browser.
+    Es werden <mark>keine Eingaben an einen Server übertragen</mark>, keine Cookies gesetzt, kein Analytics, kein Login.
+    Du kannst die Datei speichern und ohne Internet benutzen.
+  </div>
+
+  <h2>1. Steuererklärung &ndash; Abgabefrist</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="vz">Veranlagungsjahr (Steuererklärung für &hellip;)</label>
+        <input id="vz" type="number" min="2018" max="2030" step="1" value="2025">
+      </div>
+      <div>
+        <label for="berater">Wer erstellt die Erklärung?</label>
+        <select id="berater">
+          <option value="nein">Ich selbst / keine Steuerberaterin</option>
+          <option value="ja">Steuerberater / Lohnsteuerhilfe</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" id="btn-1">Frist berechnen</button>
+    <div class="out" id="out-1"></div>
+  </div>
+
+  <h2>2. Umsatzsteuer-Voranmeldung (UStVA)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="jahr">Jahr</label>
+        <input id="jahr" type="number" min="2024" max="2028" step="1" value="2026">
+      </div>
+      <div>
+        <label for="modus">Abgabe-Rhythmus</label>
+        <select id="modus">
+          <option value="monatlich">monatlich</option>
+          <option value="vierteljaehrig">vierteljährlich</option>
+        </select>
+      </div>
+      <div>
+        <label for="df">Dauerfristverlängerung</label>
+        <select id="df">
+          <option value="nein">nein</option>
+          <option value="ja">ja (Sondervorauszahlung)</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" id="btn-2">Termine anzeigen</button>
+    <div class="out" id="out-2"></div>
+  </div>
+
+  <h2>3. Kleinunternehmerregelung &sect;&nbsp;19 UStG</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="uvj">Gesamtumsatz Vorjahr (netto, &euro;)</label>
+        <input id="uvj" type="number" min="0" step="500" value="18000">
+      </div>
+      <div>
+        <label for="ulj">Gesamtumsatz laufendes Jahr (netto, &euro;)</label>
+        <input id="ulj" type="number" min="0" step="500" value="27000">
+      </div>
+    </div>
+    <button class="btn" id="btn-3">Regelung prüfen</button>
+    <div class="out" id="out-3"></div>
+  </div>
+
+  <h2>4. Aufbewahrung &amp; E-Rechnung (neu ab 2025)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="aj">Jahr, in dem die Unterlage entstanden ist</label>
+        <input id="aj" type="number" min="2010" max="2030" step="1" value="2025">
+      </div>
+      <div>
+        <label for="art">Art der Unterlage</label>
+        <select id="art">
+          <option value="buecher">B&uuml;cher / Jahresabschl&uuml;sse</option>
+          <option value="belege">Buchungsbelege (Rechnungen)</option>
+          <option value="sonstige">sonstige Unterlagen</option>
+        </select>
+      </div>
+      <div>
+        <label for="evj">Gesamtumsatz Vorjahr (netto, &euro;) &ndash; optional</label>
+        <input id="evj" type="number" min="0" step="10000" placeholder="z. B. 500000">
+      </div>
+    </div>
+    <button class="btn" id="btn-4">Aufbewahrung &amp; E-Rechnung pr&uuml;fen</button>
+    <div class="out" id="out-4"></div>
+  </div>
+
+  <h2>5. Gewinn ermitteln (E&Uuml;R, &sect;&nbsp;4 Abs. 3 EStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="eu-ein">Betriebseinnahmen (Jahr, netto, &euro;)</label>
+        <input id="eu-ein" type="number" min="0" step="100" value="50000">
+      </div>
+      <div>
+        <label for="eu-aus">Betriebsausgaben (Jahr, netto, &euro;)</label>
+        <input id="eu-aus" type="number" min="0" step="100" value="20000">
+      </div>
+    </div>
+    <button class="btn" id="btn-5">Gewinn berechnen</button>
+    <div class="out" id="out-5"></div>
+  </div>
+
+  <h2>6. Umsatzsteuer umrechnen (&sect;&nbsp;12 UStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="us-betrag">Betrag (&euro;)</label>
+        <input id="us-betrag" type="number" min="0" step="0.01" value="119">
+      </div>
+      <div>
+        <label for="us-satz">Steuersatz</label>
+        <select id="us-satz">
+          <option value="19">19 % (Regelsteuersatz)</option>
+          <option value="7">7 % (erm&auml;&szlig;igt)</option>
+        </select>
+      </div>
+      <div>
+        <label for="us-richtung">Richtung</label>
+        <select id="us-richtung">
+          <option value="brutto">Bruttobetrag &rarr; Netto + USt</option>
+          <option value="netto">Nettobetrag &rarr; USt + Brutto</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" id="btn-6">Umsatzsteuer berechnen</button>
+    <div class="out" id="out-6"></div>
+  </div>
+
+  <h2>7. Reisekosten (&sect;&nbsp;9 Abs. 4a EStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="re-voll">Volle Kalendertage (24 h)</label>
+        <input id="re-voll" type="number" min="0" step="1" value="3">
+      </div>
+      <div>
+        <label for="re-teil">An-/Abreisetage (nur teilweise)</label>
+        <input id="re-teil" type="number" min="0" step="1" value="2">
+      </div>
+      <div>
+        <label for="re-km">Gefahrene km (eigenes Kfz)</label>
+        <input id="re-km" type="number" min="0" step="1" value="240">
+      </div>
+      <div>
+        <label for="re-satz">Km-Satz (&euro;/km)</label>
+        <input id="re-satz" type="number" min="0" step="0.01" value="0.30">
+      </div>
+    </div>
+    <button class="btn" id="btn-7">Reisekosten berechnen</button>
+    <div class="out" id="out-7"></div>
+  </div>
+
+  <h2>9. Homeoffice-Pauschale (&sect;&nbsp;4 Abs. 5 Nr. 6c EStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="ho-tage">Homeoffice-Tage (Jahr)</label>
+        <input id="ho-tage" type="number" min="0" max="366" step="1" value="220">
+      </div>
+    </div>
+    <button class="btn" id="btn-8">Pauschale berechnen</button>
+    <div class="out" id="out-8"></div>
+  </div>
+
+  <h2>10. Entfernungspauschale (&sect;&nbsp;9 Abs. 1 Nr. 4 EStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="ep-tage">Arbeitstage (Jahr)</label>
+        <input id="ep-tage" type="number" min="0" max="366" step="1" value="220">
+      </div>
+      <div>
+        <label for="ep-km">Einfache Entfernung (km)</label>
+        <input id="ep-km" type="number" min="0" max="999" step="1" value="20">
+      </div>
+    </div>
+    <button class="btn" id="btn-9">Pauschale berechnen</button>
+    <div class="out" id="out-9"></div>
+  </div>
+
+  <h2>11. Gewerbesteuer (&sect;&nbsp;11 GewStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="ge-ertrag">Gewerbeertrag (&euro;, gerundet)</label>
+        <input id="ge-ertrag" type="number" min="0" step="100" value="100000">
+      </div>
+      <div>
+        <label for="ge-hebesatz">Hebesatz der Gemeinde (%)</label>
+        <input id="ge-hebesatz" type="number" min="0" max="900" step="1" value="400">
+      </div>
+    </div>
+    <button class="btn" id="btn-10">Gewerbesteuer berechnen</button>
+    <div class="out" id="out-10"></div>
+  </div>
+
+  <h2>12. Sondervorauszahlung bei Dauerfristverl&auml;ngerung (&sect;&nbsp;47 UStDV)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="svz-summe">USt-Vorauszahlungen des Vorjahres (&euro;)</label>
+        <input id="svz-summe" type="number" min="0" step="10" value="1100">
+      </div>
+    </div>
+    <button class="btn" id="btn-11">Sondervorauszahlung berechnen</button>
+    <div class="out" id="out-11"></div>
+  </div>
+
+  <h2>13. Lineare Abschreibung (AfA, &sect;&nbsp;7 Abs. 1 EStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="afa-ak">Anschaffungskosten (&euro;, netto)</label>
+        <input id="afa-ak" type="number" min="0" step="100" value="12000">
+      </div>
+      <div>
+        <label for="afa-nd">Nutzungsdauer (Jahre)</label>
+        <input id="afa-nd" type="number" min="0" max="100" step="1" value="10">
+      </div>
+      <div>
+        <label for="afa-monate">Monate im Anschaffungsjahr (1&ndash;12)</label>
+        <input id="afa-monate" type="number" min="0" max="12" step="1" value="12">
+      </div>
+    </div>
+    <button class="btn" id="btn-12">AfA berechnen</button>
+    <div class="out" id="out-12"></div>
+  </div>
+
+  <h2>14. Wenn du eine Software brauchst</h2>
+  <div class="card">
+    <p class="fine" style="margin-top:0">
+      <strong>Hinweis (Werbung / Affiliate):</strong> Die folgende Empfehlung ist freiwillig und
+      mit einem Partner-Link verlinkt &ndash; kaufst du &uuml;ber den Link, erhalten wir eine Provision.
+      F&uuml;r dich &auml;ndert sich der Preis nicht.
+    </p>
+    <div id="tools"></div>
+    <p class="fine">
+      Wir empfehlen bewusst nur Software, die wir f&uuml;r den beschriebenen Zweck selbst gepr&uuml;ft haben
+      (E-Rechnung nach EN&nbsp;16931, ELSTER-Anbindung, DATEV-Export). Eine Empfehlung ist
+      <strong>keine Steuer- oder Rechtsberatung</strong>. Preise und Leistungen bitte stets beim Anbieter pr&uuml;fen.
+    </p>
+  </div>
+
+  <div class="cta">
+    <strong>Wenn du alles schwarz auf weiß brauchst:</strong>
+    <a href="https://dongyang7.gumroad.com/l/steuer-checkliste-2026">&rarr; Steuer-Checkliste 2026 für Freiberufler &amp; Kleinunternehmer (&euro;&nbsp;9)</a>
+    <a href="https://dongyang7.gumroad.com/l/german-tax-checklist-2026-en">&rarr; German Tax Checklist 2026 (English, &euro;&nbsp;9)</a>
+    <a href="https://dongyang7.gumroad.com/l/steuer-checkliste-2026-vermieter">&rarr; Checkliste für Vermieter / Anlage V (&euro;&nbsp;12)</a>
+    <p class="fine">PDF-Sofortdownload. Kein Abo.</p>
+  </div>
+
+  <p class="fine" style="margin-top:26px">
+    Dieser Rechner ist eine unverbindliche Arbeitshilfe und <strong>keine Steuer- oder Rechtsberatung</strong>.
+    Maßgeblich sind die amtlichen Vorschriften sowie die Hinweise von ELSTER und BMF. Gesetzliche Feiertage
+    sind hier nicht hinterlegt &ndash; verschiebt sich eine Frist durch einen Feiertag, gilt der nächste Werktag.
+    Alle Angaben ohne Gewähr. Stand: Oktober 2026.
+  </p>
+</div>
+<script id="engine">
+/* ---- Fristen-Engine (deterministisch, ohne DOM-Abhängigkeit) ---- */
+var WOCHENTAG = ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
+var MONAT = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+
+function addDays(d, n) {
+  var x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  x.setDate(x.getDate() + n);
+  return x;
+}
+/* Fällt eine Frist auf Sa/So, verschiebt sie sich auf den nächsten Werktag (§ 108 AO). */
+function adjustDeadline(d) {
+  var w = d.getDay();
+  if (w === 6) return addDays(d, 2);
+  if (w === 0) return addDays(d, 1);
+  return d;
+}
+function mkDate(y, m, day) { return adjustDeadline(new Date(y, m - 1, day)); }
+
+/* Steuererklärung: ohne Berater 31.07. des Folgejahres, mit Berater 28.02. des übernächsten (§ § 149 Abs. 3 AO). */
+function steuerTermin(vz, mitBerater) {
+  vz = parseInt(vz, 10);
+  if (mitBerater) return mkDate(vz + 2, 2, 28);
+  return mkDate(vz + 1, 7, 31);
+}
+
+/* Umsatzsteuer-Voranmeldung: Abgabe und Zahlung am 10. des Folgemonats;
+   mit Dauerfristverlängerung einen Monat später (§ 18 Abs. 1 UStG, §§ 46 ff. UStDV). */
+function ustvaTermine(jahr, modus, df) {
+  jahr = parseInt(jahr, 10);
+  var endmonate = [];
+  var m;
+  if (modus === "monatlich") { for (m = 1; m <= 12; m++) endmonate.push(m); }
+  else { endmonate = [3, 6, 9, 12]; }
+  var shift = df ? 2 : 1;
+  return endmonate.map(function (em) {
+    var y = jahr, mm = em + shift;
+    while (mm > 12) { mm -= 12; y += 1; }
+    var d = mkDate(y, mm, 10);
+    var label = (modus === "monatlich") ? ("Zeitraum " + MONAT[em - 1]) : ("Quartal " + (em / 3));
+    return { label: label, abgabe: d };
+  });
+}
+
+/* Kleinunternehmergrenzen ab 01.01.2025: Vorjahr max. 25.000 EUR, laufendes Jahr max. 100.000 EUR (§ 19 UStG). */
+function kleinunternehmerCheck(vorjahr, laufend) {
+  var v = (vorjahr === "" || vorjahr === null || isNaN(vorjahr)) ? null : parseFloat(vorjahr);
+  var l = (laufend === "" || laufend === null || isNaN(laufend)) ? null : parseFloat(laufend);
+  var hinweise = [], status = "Angaben unvollständig", level = "warn";
+  if (v !== null && l !== null && l > 100000) {
+    status = "Grenze überschritten - Umsatzsteuerpflicht";
+    level = "err";
+    hinweise.push("Der laufende Umsatz liegt über 100.000 EUR. Damit endet die Kleinunternehmerregelung: die Umsätze des <strong>ganzen Jahres</strong> werden umsatzsteuerpflichtig (nicht nur der übersteigende Teil).");
+    hinweise.push("Umsatzsteuerliche Erfassung und ggf. rückwirkende Voranmeldungen prüfen - das ist ein Fall für die Steuerberatung.");
+  } else if (v !== null && v > 25000) {
+    status = "Vorjahr über 25.000 EUR – Regelung entfällt";
+    level = "warn";
+    hinweise.push("Da der Vorjahresumsatz 25.000 EUR überstieg, greift die Kleinunternehmerregelung im laufenden Jahr <strong>nicht</strong>: alle Umsätze sind ab 01.01. umsatzsteuerpflichtig (Vorsteuerabzug möglich). Eine „Wahl“ der Regelung ist nicht möglich.");
+    hinweise.push("Die Regelung greift erst wieder, wenn der Gesamtumsatz eines Jahres höchstens 25.000 EUR beträgt – maßgeblich ist immer das Vorjahr. Ein freiwilliger <strong>Verzicht</strong> auf die Regelung nach § 19 Abs. 3 UStG bindet dagegen mindestens fünf Kalenderjahre.");
+  } else if (v !== null && l !== null) {
+    status = "§ 19 UStG anwendbar";
+    level = "ok";
+    hinweise.push("Vorjahr max. 25.000 EUR und laufendes Jahr max. 100.000 EUR - die Kleinunternehmerregelung kann angewandt werden, Rechnungen dann ohne Umsatzsteuer (mit Hinweis auf § 19 UStG).");
+    var rest = 100000 - l;
+    hinweise.push("Bis zur 100.000-EUR-Grenze sind noch ca. <strong>" + rest.toLocaleString("de-DE") + " EUR</strong> Umsatz Luft - diese Grenze wird unterjährig laufend geprüft, nicht erst am Jahresende.");
+  }
+  if (v === null || l === null) {
+    hinweise.push("Bitte beide Umsatzfelder ausfüllen (Netto-Gesamtumsatz aller unternehmerischen Tätigkeiten).");
+  }
+  hinweise.push("Gesamtumsatz nach § 19 Abs. 2 UStG = Summe der steuerbaren Umsätze, berechnet nach <strong>vereinnahmten Entgelten</strong>; bestimmte steuerfreie Umsätze und Verkäufe aus dem Anlagevermögen werden abgezogen. Im Gründungsjahr wird die 25.000-EUR-Grenze nur zeitanteilig geprüft.");
+  return { status: status, level: level, hinweise: hinweise };
+}
+
+function fmt(d) {
+  return WOCHENTAG[d.getDay()] + ", " + d.getDate() + ". " + MONAT[d.getMonth()] + " " + d.getFullYear();
+}
+function tageBis(ziel, heute) {
+  var a = new Date(heute.getFullYear(), heute.getMonth(), heute.getDate());
+  var b = new Date(ziel.getFullYear(), ziel.getMonth(), ziel.getDate());
+  return Math.round((b - a) / 86400000);
+}
+
+/* Aufbewahrungsfristen § 147 AO: Bücher/Aufzeichnungen 10 Jahre, Buchungsbelege 8 Jahre,
+   sonstige Unterlagen 6 Jahre. Beginn: Ablauf des Kalenderjahres, in dem die Unterlage entstanden ist. */
+function aufbewahrung(jahr, art) {
+  jahr = parseInt(jahr, 10);
+  var jahre = (art === "buecher") ? 10 : (art === "belege") ? 8 : 6;
+  var label = (art === "buecher") ? "Bücher, Abschlüsse, Jahresabschlüsse"
+            : (art === "belege") ? "Buchungsbelege (Rechnungen, Kontoauszüge)"
+            : "sonstige Unterlagen (z. B. Geschäftsbriefe)";
+  return { jahre: jahre, label: label, bis: new Date(jahr + jahre, 11, 31) };
+}
+
+/* E-Rechnung: B2B-Empfang strukturierter Rechnungen (XRechnung/ZUGFeRD, EN 16931) ist seit 01.01.2025 Pflicht
+   (§ 14 UStG). Ausstellen auf Papier/PDF nur noch im Übergang bis 31.12.2026 (§ 27 Abs. 38 UStG),
+   bei Gesamtumsatz des Vorjahres <= 800.000 EUR bis 31.12.2027. */
+function erechnungStatus(jahr, umsatzVorjahr) {
+  jahr = parseInt(jahr, 10);
+  var u = (umsatzVorjahr === "" || umsatzVorjahr === null || isNaN(umsatzVorjahr)) ? null : parseFloat(umsatzVorjahr);
+  var papier = (jahr <= 2026) || (jahr <= 2027 && u !== null && u <= 800000);
+  var hinweise = [];
+  if (!papier) {
+    hinweise.push("Ab " + jahr + " müssen Rechnungen an Unternehmer <strong>elektronisch</strong> (strukturiert, EN 16931) ausgestellt werden – Papier/PDF ist nicht mehr zulässig.");
+  } else if (jahr === 2027 && u !== null && u <= 800000) {
+    hinweise.push("Übergangserleichterung: Bei einem Gesamtumsatz des Vorjahres bis 800.000 € darf 2027 noch auf Papier/PDF ausgestellt werden – letztmalig.");
+  } else {
+    hinweise.push("Papier/PDF ist übergangsweise noch zulässig – letztmalig bis 31.12.2026 (bzw. 31.12.2027 bei Gesamtumsatz ≤ 800.000 €).");
+  }
+  hinweise.push("Unabhängig davon: Seit 01.01.2025 musst du strukturierte E-Rechnungen von Geschäftspartnern <strong>empfangen und verarbeiten können</strong> (§ 14 Abs. 2 Satz 2 UStG).");
+  hinweise.push("Alle Rechnungen müssen seit 2025 <strong>unveränderbar</strong> archiviert werden (§ 14b UStG) – die alte Papier-Ausnahme ist entfallen.");
+  return { papierErlaubt: papier, uebergang800k: papier && jahr === 2027, hinweise: hinweise };
+}
+
+
+/* Gewinnermittlung (vereinfacht, § 4 Abs. 3 EStG): Gewinn = Betriebseinnahmen - Betriebsausgaben. */
+function euerCalc(einnahmen, ausgaben) {
+  var e = parseFloat(einnahmen); if (isNaN(e)) e = 0;
+  var a = parseFloat(ausgaben);  if (isNaN(a)) a = 0;
+  var gewinn = Math.round((e - a) * 100) / 100;
+  return { einnahmen: Math.round(e * 100) / 100, ausgaben: Math.round(a * 100) / 100,
+           gewinn: gewinn, verlust: gewinn < 0 };
+}
+
+/* Umsatzsteuer umrechnen, § 12 UStG: 19 % Regel / 7 % ermaessigt. */
+function ustRechner(betrag, satz, richtung) {
+  var b = parseFloat(betrag); if (isNaN(b)) b = 0; b = Math.abs(b);
+  var s = parseFloat(satz); if (isNaN(s)) s = 0;
+  var netto, ust, brutto;
+  if (richtung === "brutto") {
+    brutto = Math.round(b * 100) / 100;
+    netto = Math.round((brutto / (1 + s / 100)) * 100) / 100;
+    ust = Math.round((brutto - netto) * 100) / 100;
+  } else {
+    netto = Math.round(b * 100) / 100;
+    ust = Math.round((netto * s / 100) * 100) / 100;
+    brutto = Math.round((netto + ust) * 100) / 100;
+  }
+  return { netto: netto, ust: ust, brutto: brutto, satz: s };
+}
+
+/* Reisekosten: Verpflegungspauschale § 9 Abs. 4a EStG (28 EUR voll / 14 EUR An-/Abreise),
+   Km-Satz ist ein Eingabefeld (Standard 0,30 EUR): § 9 Abs. 1 Nr. 4a EStG verweist
+   fuer die pauschalen Kilometersaetze auf die hoechste Wegstreckenentschaedigung nach dem
+   Bundesreisekostengesetz (BRKG) - Satz vor Nutzung pruefen. */
+function reisekosten(voll, teil, km, satz) {
+  var v = parseInt(voll, 10); if (isNaN(v)) v = 0;
+  var t = parseInt(teil, 10); if (isNaN(t)) t = 0;
+  var k = parseFloat(km);     if (isNaN(k)) k = 0;
+  var s = parseFloat(satz);   if (isNaN(s) || s < 0) s = 0.30;   // Kilometersatz, editierbar
+  var verpflegung = Math.round((v * 28 + t * 14) * 100) / 100;
+  var fahrt = Math.round((k * s) * 100) / 100;
+  return { verpflegung: verpflegung, fahrt: fahrt, satz: s,
+           summe: Math.round((verpflegung + fahrt) * 100) / 100 };
+}
+
+
+/* Homeoffice-Pauschale: 4 Abs. 5 Nr. 6c EStG: 6 EUR je Kalendertag, hoechstens 1 260 EUR im Jahr. */
+function homeofficePauschale(tage) {
+  var t = parseInt(tage, 10); if (isNaN(t) || t < 0) t = 0;
+  var betrag = Math.round((t * 6) * 100) / 100;
+  var capJahres = 1260;
+  return { tage: t, satz: 6, betrag: betrag, angesetzt: betrag > capJahres ? capJahres : betrag,
+           gekappt: betrag > capJahres };
+}
+
+/* Entfernungspauschale (§ 9 Abs. 1 Nr. 4 EStG, Stand 2026): 0,38 EUR fuer JEDEN vollen
+   Kilometer der einfachen Entfernung, Hoechstbetrag 4 500 EUR je Kalenderjahr.
+   Kein 20-km-Staffelsatz mehr (gegen gesetze-im-internet.de/estg/__9.html verifiziert). */
+function pendlerPauschale(tage, km) {
+  var t = parseInt(tage, 10); if (isNaN(t) || t < 0) t = 0;
+  var k = parseInt(km, 10);   if (isNaN(k) || k < 0) k = 0;
+  var jeTag = Math.round((k * 0.38) * 100) / 100;
+  var summe = Math.round((t * jeTag) * 100) / 100;
+  var cap = 4500;
+  return { tage: t, km: k, jeTag: jeTag, summe: summe,
+           angesetzt: summe > cap ? cap : summe, gekappt: summe > cap };
+}
+
+/* Gewerbesteuer: 11 GewStG: Freibetrag 24 500 EUR, auf volle 100 EUR abrunden, Messzahl 3,5 %,
+   danach Hebesatz der Gemeinde. */
+function gewerbesteuer(ertrag, hebesatz) {
+  var e = parseFloat(ertrag);   if (isNaN(e) || e < 0) e = 0;
+  var h = parseFloat(hebesatz); if (isNaN(h) || h < 0) h = 0;
+  var nachFreibetrag = e - 24500;
+  if (nachFreibetrag < 0) nachFreibetrag = 0;
+  var gerundet = Math.floor(nachFreibetrag / 100) * 100;
+  var messbetrag = Math.round(gerundet * 0.035 * 100) / 100;
+  var steuer = Math.round(messbetrag * h / 100 * 100) / 100;
+  return { ertrag: e, freibetrag: 24500, gerundet: gerundet,
+           messbetrag: messbetrag, hebesatz: h, steuer: steuer };
+}
+
+/* Sondervorauszahlung: 47 Abs. 1 UStDV = ein Elftel der USt-Vorauszahlungssumme des Vorjahres. */
+function sondervorauszahlung(summeVorjahr) {
+  var s = parseFloat(summeVorjahr); if (isNaN(s) || s < 0) s = 0;
+  return { summeVorjahr: s, elftel: Math.round((s / 11) * 100) / 100 };
+}
+
+/* Lineare AfA: 7 Abs. 1 EStG: AK gleichmaessig auf die Nutzungsdauer, Anschaffungsjahr zeitanteilig. */
+function afaLinear(ak, nutzungsdauer, monate) {
+  var a = parseFloat(ak);            if (isNaN(a) || a < 0) a = 0;
+  var n = parseFloat(nutzungsdauer); if (isNaN(n) || n <= 0) n = 0;
+  var m = parseInt(monate, 10);      if (isNaN(m) || m < 0) m = 0; if (m > 12) m = 12;
+  var jahresAfa = n > 0 ? Math.round((a / n) * 100) / 100 : 0;
+  var erstesJahr = Math.round((jahresAfa * m / 12) * 100) / 100;
+  return { ak: a, nutzungsdauer: n, jahresAfa: jahresAfa, monate: m, erstesJahr: erstesJahr };
+}
+
+/* Test-Hook für Node (deutsche Sonderzeichen werden zur Laufzeit gesetzt) */
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    steuerTermin: steuerTermin, ustvaTermine: ustvaTermine,
+    kleinunternehmerCheck: kleinunternehmerCheck, fmt: fmt, tageBis: tageBis,
+    aufbewahrung: aufbewahrung, erechnungStatus: erechnungStatus,
+    euerCalc: euerCalc, ustRechner: ustRechner, reisekosten: reisekosten,
+    homeofficePauschale: homeofficePauschale, pendlerPauschale: pendlerPauschale,
+    gewerbesteuer: gewerbesteuer, sondervorauszahlung: sondervorauszahlung, afaLinear: afaLinear,
+    WOCHENTAG: WOCHENTAG, MONAT: MONAT
+  };
+}
+</script>
+
+<script>
+/* ---- UI (nur im Browser) ---- */
+function el(id) { return document.getElementById(id); }
+/* de-DE Waehrungsformat ohne Umlaut-Abhaengigkeit */
+function fmtEur(n) {
+  var v = (typeof n === "number") ? n : (parseFloat(n) || 0);
+  var neg = v < 0; v = Math.abs(v);
+  var s = v.toFixed(2).replace(".", ",");
+  var p = s.split(",");
+  p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return (neg ? "-" : "") + p[0] + "," + p[1] + " \u20AC";
+}
+function row(k, v) { return '<div class="row"><span class="k">' + k + '</span><span class="v">' + v + '</span></div>'; }
+
+function renderFrist() {
+  var mitBerater = el("berater").value === "ja";
+  var d = steuerTermin(el("vz").value, mitBerater);
+  var tage = tageBis(d, new Date());
+  var html = row("Abgabefrist", fmt(d));
+  html += row("Grundlage", mitBerater ? "§ 149 Abs. 3 AO – letzter Tag des Monats Februar des übernächsten Jahres" : "§ 149 Abs. 2 AO – sieben Monate nach Ablauf des Kalenderjahres (31.07.)");
+  html += row("In Tagen", tage >= 0 ? (tage + " Tage") : ("Frist bereits abgelaufen (" + Math.abs(tage) + " Tage)"));
+  html += '<p class="fine">Fällt der 31.07. bzw. 28.02. auf ein Wochenende, verschiebt sich die Frist auf den nächsten Werktag. Verlängerung darüber hinaus nur auf Antrag (§ 109 AO).</p>';
+  el("out-1").innerHTML = html;
+}
+
+function renderStva() {
+  var df = el("df").value === "ja";
+  var list = ustvaTermine(el("jahr").value, el("modus").value, df);
+  var html = "";
+  list.forEach(function (t) { html += row(t.label + " - Abgabe &amp; Zahlung", fmt(t.abgabe)); });
+  html += '<p class="fine">§ 18 Abs. 1 UStG: Abgabe bis zum 10. Tag nach Ablauf des Voranmeldungszeitraums. Mit Dauerfristverlängerung: einen Monat später, dafür jährliche Sondervorauszahlung. Bei Lastschrifteinzug separate Fälligkeit (25. des Folgemonats) beachten. Für Kleinunternehmer nach § 19 UStG entfällt die UStVA in der Regel ganz.</p>';
+  el("out-2").innerHTML = html;
+}
+
+/* Empfohlene Tools: link 为空时只显示名称与说明，不渲染成可点链接（等 Awin 开通后填 URL）。
+   一旦填上 link，必须同时保留上面的 "Werbung / Affiliate" 披露块。 */
+var TOOLS = [
+  { name: "Lexware Office", desc: "Online-Buchhaltung für Selbstständige, E-Rechnung nach EN 16931, ELSTER-Anbindung.", link: "" },
+  { name: "easybill", desc: "Rechnungssoftware mit E-Rechnungs-Erstellung und Automatisierung, DATEV-Export.", link: "" }
+];
+
+function renderTools() {
+  var html = "";
+  TOOLS.forEach(function (t) {
+    html += '<div class="row"><span class="k"><strong>' + t.name + '</strong><br><span class="fine">' + t.desc + '</span></span>'
+         +  '<span class="v">' + (t.link ? '<a href="' + t.link + '" rel="sponsored nofollow" target="_blank">Zum Anbieter &rarr;</a>' : '<span class="fine">Link folgt</span>') + '</span></div>';
+  });
+  el("tools").innerHTML = html;
+}
+
+function renderEr() {
+  var jahr = el("aj").value;
+  var a = aufbewahrung(jahr, el("art").value);
+  var e = erechnungStatus(jahr, el("evj").value);
+  var html = row("Aufbewahrung bis", "31.12." + a.bis.getFullYear());
+  html += row("Art der Unterlage", a.label);
+  html += row("Dauer", a.jahre + " Jahre (§ 147 AO)");
+  html += row("Papier/PDF-Ausstellung", e.papierErlaubt ? '<span class="badge b-warn">noch zulässig (Übergang)</span>' : '<span class="badge b-err">nicht mehr zulässig</span>');
+  html += '<ul class="hints"><li>' + e.hinweise.join('</li><li>') + '</li></ul>';
+  html += '<p class="fine">Fristbeginn: Ablauf des Kalenderjahres, in dem die Unterlage entstanden ist – die Frist verlängert sich also nicht, wenn später gebucht wird.</p>';
+  el("out-4").innerHTML = html;
+}
+
+function renderKu() {
+  var r = kleinunternehmerCheck(el("uvj").value, el("ulj").value);
+  var cls = r.level === "ok" ? "b-ok" : (r.level === "err" ? "b-err" : "b-warn");
+  var html = '<div class="row"><span class="k">Ergebnis</span><span class="v"><span class="badge ' + cls + '">' + r.status + '</span></span></div>';
+  html += '<ul class="hints"><li>' + r.hinweise.join('</li><li>') + '</li></ul>';
+  el("out-3").innerHTML = html;
+}
+
+
+function renderEuer() {
+  var r = euerCalc(el("eu-ein").value, el("eu-aus").value);
+  var html = row("Betriebseinnahmen", fmtEur(r.einnahmen));
+  html += row("Betriebsausgaben", fmtEur(r.ausgaben));
+  html += row(r.verlust ? "Verlust" : "Gewinn",
+              '<span class="badge ' + (r.verlust ? "b-err" : "b-ok") + '">' + fmtEur(r.gewinn) + '</span>');
+  html += '<p class="fine">&sect;&nbsp;4 Abs. 3 EStG (Einnahmen-&Uuml;berschuss-Rechnung): Gewinn = Betriebseinnahmen &minus; Betriebsausgaben. '
+        + 'Vereinfachte Rechnung ohne AfA, Privatanteile und Umsatzsteuer-Sonderf&auml;lle.</p>';
+  el("out-5").innerHTML = html;
+}
+
+function renderUst() {
+  var r = ustRechner(el("us-betrag").value, el("us-satz").value, el("us-richtung").value);
+  var html = row("Netto", fmtEur(r.netto));
+  html += row("Umsatzsteuer (" + r.satz + " %)", fmtEur(r.ust));
+  html += row("<strong>Brutto</strong>", "<strong>" + fmtEur(r.brutto) + "</strong>");
+  html += '<p class="fine">&sect;&nbsp;12 UStG: 19 % Regelsteuersatz, 7 % erm&auml;&szlig;igt. '
+        + 'Kleinunternehmer nach &sect;&nbsp;19 UStG weisen keine Umsatzsteuer aus.</p>';
+  el("out-6").innerHTML = html;
+}
+
+function renderReise() {
+  var r = reisekosten(el("re-voll").value, el("re-teil").value, el("re-km").value, el("re-satz").value);
+  var html = row("Verpflegungspauschale", fmtEur(r.verpflegung));
+  html += row("Fahrtkosten (" + String(r.satz).replace(".", ",") + " &euro;/km)", fmtEur(r.fahrt));
+  html += row("<strong>Summe</strong>", "<strong>" + fmtEur(r.summe) + "</strong>");
+  html += '<p class="fine">&sect;&nbsp;9 Abs. 4a EStG: 28 &euro; pro vollem Kalendertag, 14 &euro; f&uuml;r An- und Abreisetag. '
+        + 'F&uuml;r die Kilometers&auml;tze verweist &sect;&nbsp;9 Abs.&nbsp;1 Nr.&nbsp;4a EStG auf die h&ouml;chste Wegstreckenentsch&auml;digung nach dem Bundesreisekostengesetz (BRKG); '
+        + 'der Satz ist oben editierbar und vor Nutzung zu pr&uuml;fen. Werte sind Pauschalen &ndash; h&ouml;here Kosten nur mit Einzelnachweis.</p>';
+  el("out-7").innerHTML = html;
+}
+
+
+function renderHp() {
+  var r = homeofficePauschale(el("ho-tage").value);
+  var html = row("Homeoffice-Tage", r.tage);
+  html += row("Tagessatz", fmtEur(r.satz));
+  html += row("Rechnerisch", fmtEur(r.betrag));
+  html += row("<strong>Absetzbar</strong>", "<strong>" + fmtEur(r.angesetzt) + "</strong>");
+  if (r.gekappt) html += row("Hinweis", '<span class="badge b-warn">Jahreshoechstbetrag 1.260 EUR erreicht</span>');
+  html += '<p class="fine">&sect;&nbsp;4 Abs. 5 Nr. 6c EStG: 6 &euro; je Kalendertag, hoechstens 1.260 &euro; im Jahr. '
+        + 'Nur fuer Tage, an denen die Taetigkeit ueberwiegend in der haeuslichen Wohnung ausgeuebt wird. '
+        + 'Arbeitsmittel (Schreibtisch, Monitor) sind zusaetzlich abziehbar.</p>';
+  el("out-8").innerHTML = html;
+}
+
+function renderPendler() {
+  var r = pendlerPauschale(el("ep-tage").value, el("ep-km").value);
+  var html = row("Arbeitstage", r.tage);
+  html += row("Einfache Entfernung", r.km + " km");
+  html += row("Pauschale je Arbeitstag", fmtEur(r.jeTag));
+  html += row("<strong>Entfernungspauschale</strong>", "<strong>" + fmtEur(r.angesetzt) + "</strong>");
+  if (r.gekappt) html += row("Hinweis", '<span class="badge b-warn">Hoechstbetrag 4.500 EUR erreicht</span>');
+  html += '<p class="fine">&sect;&nbsp;9 Abs. 1 Nr. 4 EStG: 0,38 &euro; je vollem Kilometer der Entfernung '
+        + '(die ersten 20 km mit 0,30 &euro;), hoechstens 4.500 &euro; im Kalenderjahr, nur die einfache Strecke. '
+        + 'Gilt fuer Arbeitnehmer; Selbstaendige setzen Reisekosten nach &sect;&nbsp;9 Abs. 4a EStG an (Rechner 7).</p>';
+  el("out-9").innerHTML = html;
+}
+
+function renderGewerbe() {
+  var r = gewerbesteuer(el("ge-ertrag").value, el("ge-hebesatz").value);
+  var html = row("Gewerbeertrag", fmtEur(r.ertrag));
+  html += row("Freibetrag", "&minus; " + fmtEur(r.freibetrag));
+  html += row("Auf volle 100 &euro; abgerundet", fmtEur(r.gerundet));
+  html += row("Steuermessbetrag (3,5 %)", fmtEur(r.messbetrag));
+  html += row("Hebesatz", r.hebesatz + " %");
+  html += row("<strong>Gewerbesteuer</strong>", "<strong>" + fmtEur(r.steuer) + "</strong>");
+  html += '<p class="fine">&sect;&nbsp;11 GewStG: Freibetrag 24.500 &euro; fuer natuerliche Personen und '
+        + 'Personengesellschaften, Gewerbeertrag auf volle 100 &euro; abrunden, Steuermesszahl 3,5 %, '
+        + 'darauf der Hebesatz der Gemeinde (mindestens 200 %). Freiberufler (Katalogberufe) zahlen keine '
+        + 'Gewerbesteuer. Eine Anrechnung auf die Einkommensteuer prueft das Finanzamt.</p>';
+  el("out-10").innerHTML = html;
+}
+
+function renderSvz() {
+  var r = sondervorauszahlung(el("svz-summe").value);
+  var html = row("Vorauszahlungen Vorjahr", fmtEur(r.summeVorjahr));
+  html += row("<strong>Sondervorauszahlung (1/11)</strong>", "<strong>" + fmtEur(r.elftel) + "</strong>");
+  html += '<p class="fine">&sect;&nbsp;47 Abs. 1 UStDV: Die Dauerfristverlaengerung wird bei monatlicher '
+        + 'Voranmeldung nur gegen eine Sondervorauszahlung von einem Elftel der Vorauszahlungssumme des '
+        + 'Vorjahres gewaehrt. Anrechnung im letzten Voranmeldungszeitraum des Jahres '
+        + '(&sect;&nbsp;48 Abs. 4 UStDV).</p>';
+  el("out-11").innerHTML = html;
+}
+
+function renderAfa() {
+  var r = afaLinear(el("afa-ak").value, el("afa-nd").value, el("afa-monate").value);
+  var html = row("Anschaffungskosten", fmtEur(r.ak));
+  html += row("Nutzungsdauer", r.nutzungsdauer + " Jahre");
+  html += row("AfA je vollem Jahr", fmtEur(r.jahresAfa));
+  html += row("<strong>AfA im Anschaffungsjahr</strong>", "<strong>" + fmtEur(r.erstesJahr) + "</strong>");
+  html += row("Monate angesetzt", r.monate);
+  html += '<p class="fine">&sect;&nbsp;7 Abs. 1 EStG: Bei mehrjaehriger Nutzung wird der Teil der '
+        + 'Anschaffungskosten abgesetzt, der bei gleichmaessiger Verteilung auf die betriebsgewoehnliche '
+        + 'Nutzungsdauer auf ein Jahr entfaellt; im Anschaffungsjahr zeitanteilig. Nutzungsdauer: '
+        + 'AfA-Tabellen des BMF. Bewegliche Wirtschaftsgueter bis 800 &euro; netto koennen sofort '
+        + 'abgeschrieben werden (&sect;&nbsp;6 Abs. 2 EStG).</p>';
+  el("out-12").innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  el("btn-1").addEventListener("click", renderFrist);
+  el("btn-2").addEventListener("click", renderStva);
+  el("btn-3").addEventListener("click", renderKu);
+  el("btn-4").addEventListener("click", renderEr);
+  el("btn-5").addEventListener("click", renderEuer);
+  el("btn-6").addEventListener("click", renderUst);
+  el("btn-7").addEventListener("click", renderReise);
+  el("btn-8").addEventListener("click", renderHp);
+  el("btn-9").addEventListener("click", renderPendler);
+  el("btn-10").addEventListener("click", renderGewerbe);
+  el("btn-11").addEventListener("click", renderSvz);
+  el("btn-12").addEventListener("click", renderAfa);
+  renderFrist(); renderStva(); renderKu(); renderEr(); renderTools();
+  renderEuer(); renderUst(); renderReise();
+  renderHp(); renderPendler(); renderGewerbe(); renderSvz(); renderAfa();
+});
+</script>
+</body>
+</html>
