@@ -342,7 +342,23 @@
     <div class="out" id="out-15"></div>
   </div>
 
-  <h2>14. Wenn du eine Software brauchst</h2>
+    <h2>13. Kfz-Kosten &mdash; 1 %-Regelung (&sect;&nbsp;6 Abs. 1 Nr. 4 EStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="kfz-ak">Anschaffungskosten (€, Brutto inkl. Sonderausstattung)</label>
+        <input id="kfz-ak" type="number" min="0" step="100" value="30000">
+      </div>
+      <div>
+        <label for="kfz-monate">Betriebliche Nutzung (Monate / 12)</label>
+        <input id="kfz-monate" type="number" min="1" max="12" step="1" value="12">
+      </div>
+    </div>
+    <p class="fine">Voraussetzung: Fahrzeug zu mehr als 50 % betrieblich genutzt &mdash;
+    ansonsten tats&auml;chliche Aufwendungen (Fahrtenbuch / Verpflegung nach &sect;&nbsp;4 Abs. 3 EStG).</p>
+    <button class="btn" id="btn-16">1 %-Regelung berechnen</button>
+    <div class="out" id="out-16"></div>
+  </div><h2>14. Wenn du eine Software brauchst</h2>
   <div class="card">
     <p class="fine" style="margin-top:0">
       <strong>Hinweis (Werbung / Affiliate):</strong> Die folgende Empfehlung ist freiwillig und
@@ -600,6 +616,14 @@ function iabRechner(kosten, prozent, gewinn) {
   return { kosten: k, prozent: p, gewinn: g, betrag: betrag, gewinnOk: g <= 200000 };
 }
 
+function kfzRechner(ak, monate) {
+  var erg = { ak: ak, monate: monate, satz: 0.01, betrag: 0, kgv: 0, hinweis: '' };
+  if (ak <= 0 || monate <= 0) { erg.betrag = 0; return erg; }
+  var betrag = Math.round(ak * 0.01 * monate / 12 * 100) / 100;
+  erg.betrag = betrag;
+  erg.hinweis = '1 %-Regelung: ' + betrag.toFixed(2) + ' €';
+  return erg;
+}
 /* Ist-Versteuerung: § 20 UStG - Antrag; Nr. 1: Gesamtumsatz Vorjahr <= 800.000 EUR. */
 function istVersteuerung(umsatz) {
   var u = parseFloat(umsatz); if (isNaN(u) || u < 0) u = 0;
@@ -617,6 +641,7 @@ if (typeof module !== "undefined" && module.exports) {
     homeofficePauschale: homeofficePauschale, pendlerPauschale: pendlerPauschale,
     gewerbesteuer: gewerbesteuer, sondervorauszahlung: sondervorauszahlung, afaLinear: afaLinear,
     kleinbetragsrechnung: kleinbetragsrechnung, iabRechner: iabRechner, istVersteuerung: istVersteuerung,
+    kfzRechner: kfzRechner,
     WOCHENTAG: WOCHENTAG, MONAT: MONAT
   };
 }
@@ -826,6 +851,19 @@ function renderIab() {
   el("out-14").innerHTML = html;
 }
 
+function renderKfz() {
+  var ak = parseFloat(el("kfz-ak").value) || 0;
+  var m = parseInt(el("kfz-monate").value) || 0;
+  var r = kfzRechner(ak, m);
+  var html = row("Anschaffungskosten", fmtEur(r.ak));
+  html += row("Betriebliche Monate", r.monate + " / 12");
+  html += row("1 %-Satz", "0,01/Monat = " + (r.ak * 0.01).toFixed(2) + " €/Monat");
+  html += row("<strong>Kfz-Pauschale</strong>", "<strong>" + fmtEur(r.betrag) + "</strong>");
+  html += '<p class="fine">§ 6 Abs. 1 Nr. 4 EStG: 1 % des inländischen Listenpreises '
+        + '(inkl. Sonderausstattung) pro Monat betriebliche Nutzung, max. 10 000 €/Monat. '
+        + '→ Tatsächliche Aufwendungen (Fahrtenbuch): § 4 Abs. 3 EStG.</p>';
+  el("out-16").innerHTML = html;
+}
 function renderIst() {
   var r = istVersteuerung(el("ist-umsatz").value);
   var html = row("Gesamtumsatz Vorjahr", fmtEur(r.umsatz));
@@ -857,7 +895,8 @@ document.addEventListener("DOMContentLoaded", function () {
   el("btn-13").addEventListener("click", renderKleinbetrag);
   el("btn-14").addEventListener("click", renderIab);
   el("btn-15").addEventListener("click", renderIst);
-  renderFrist(); renderStva(); renderKu(); renderEr(); renderTools();
+  el("btn-16").addEventListener("click", renderKfz);
+  renderFrist(); renderStva(); renderKu(); renderEr(); renderTools(); renderKfz();
   renderEuer(); renderUst(); renderReise();
   renderHp(); renderPendler(); renderGewerbe(); renderSvz(); renderAfa();
   renderKleinbetrag(); renderIab(); renderIst();
