@@ -298,6 +298,50 @@
     <div class="out" id="out-12"></div>
   </div>
 
+  <h2>8. Kleinbetragsrechnung (&sect;&nbsp;33 UStDV)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="kb-betrag">Gesamtbetrag der Rechnung (&euro;, brutto)</label>
+        <input id="kb-betrag" type="number" min="0" step="1" value="250">
+      </div>
+    </div>
+    <button class="btn" id="btn-13">Prüfen</button>
+    <div class="out" id="out-13"></div>
+  </div>
+
+  <h2>15. Investitionsabzugsbetrag (&sect;&nbsp;7g EStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="iab-kosten">Voraussichtliche Anschaffungskosten (&euro;)</label>
+        <input id="iab-kosten" type="number" min="0" step="100" value="50000">
+      </div>
+      <div>
+        <label for="iab-prozent">Abzugssatz (%)</label>
+        <input id="iab-prozent" type="number" min="0" max="50" step="1" value="50">
+      </div>
+      <div>
+        <label for="iab-gewinn">Gewinn vor IAB (&euro;, &sect;&nbsp;4/5 EStG)</label>
+        <input id="iab-gewinn" type="number" min="0" step="1000" value="150000">
+      </div>
+    </div>
+    <button class="btn" id="btn-14">IAB berechnen</button>
+    <div class="out" id="out-14"></div>
+  </div>
+
+  <h2>16. Ist-Versteuerung (&sect;&nbsp;20 UStG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="ist-umsatz">Gesamtumsatz des Vorjahres (&euro;, &sect;&nbsp;19 Abs. 2 UStG)</label>
+        <input id="ist-umsatz" type="number" min="0" step="1000" value="400000">
+      </div>
+    </div>
+    <button class="btn" id="btn-15">Prüfen</button>
+    <div class="out" id="out-15"></div>
+  </div>
+
   <h2>14. Wenn du eine Software brauchst</h2>
   <div class="card">
     <p class="fine" style="margin-top:0">
@@ -538,6 +582,31 @@ function afaLinear(ak, nutzungsdauer, monate) {
   return { ak: a, nutzungsdauer: n, jahresAfa: jahresAfa, monate: m, erstesJahr: erstesJahr };
 }
 
+/* Kleinbetragsrechnung: § 33 UStDV - Rechnung bis 250 EUR Gesamtbetrag braucht nur 4 Mindestangaben. */
+function kleinbetragsrechnung(betrag) {
+  var b = parseFloat(betrag); if (isNaN(b) || b < 0) b = 0;
+  var grenze = 250;
+  var erlaubt = b > 0 && b <= grenze;
+  return { betrag: b, grenze: grenze, erlaubt: erlaubt, differenz: Math.round((grenze - b) * 100) / 100 };
+}
+
+/* IAB: § 7g Abs. 1 EStG - bis 50 % der voraussichtlichen AK; Gewinngrenze 200.000 EUR; Hoechstbetrag 200.000 EUR. */
+function iabRechner(kosten, prozent, gewinn) {
+  var k = parseFloat(kosten);  if (isNaN(k) || k < 0) k = 0;
+  var p = parseFloat(prozent); if (isNaN(p) || p < 0) p = 0; if (p > 50) p = 50;
+  var g = parseFloat(gewinn);  if (isNaN(g) || g < 0) g = 0;
+  var betrag = Math.round((k * p / 100) * 100) / 100;
+  if (betrag > 200000) betrag = 200000;
+  return { kosten: k, prozent: p, gewinn: g, betrag: betrag, gewinnOk: g <= 200000 };
+}
+
+/* Ist-Versteuerung: § 20 UStG - Antrag; Nr. 1: Gesamtumsatz Vorjahr <= 800.000 EUR. */
+function istVersteuerung(umsatz) {
+  var u = parseFloat(umsatz); if (isNaN(u) || u < 0) u = 0;
+  var grenze = 800000;
+  return { umsatz: u, grenze: grenze, grenzeOk: u <= grenze, differenz: Math.round((u - grenze) * 100) / 100 };
+}
+
 /* Test-Hook für Node (deutsche Sonderzeichen werden zur Laufzeit gesetzt) */
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
@@ -547,6 +616,7 @@ if (typeof module !== "undefined" && module.exports) {
     euerCalc: euerCalc, ustRechner: ustRechner, reisekosten: reisekosten,
     homeofficePauschale: homeofficePauschale, pendlerPauschale: pendlerPauschale,
     gewerbesteuer: gewerbesteuer, sondervorauszahlung: sondervorauszahlung, afaLinear: afaLinear,
+    kleinbetragsrechnung: kleinbetragsrechnung, iabRechner: iabRechner, istVersteuerung: istVersteuerung,
     WOCHENTAG: WOCHENTAG, MONAT: MONAT
   };
 }
@@ -678,7 +748,8 @@ function renderPendler() {
   html += row("<strong>Entfernungspauschale</strong>", "<strong>" + fmtEur(r.angesetzt) + "</strong>");
   if (r.gekappt) html += row("Hinweis", '<span class="badge b-warn">Hoechstbetrag 4.500 EUR erreicht</span>');
   html += '<p class="fine">&sect;&nbsp;9 Abs. 1 Nr. 4 EStG: 0,38 &euro; je vollem Kilometer der Entfernung '
-        + '(die ersten 20 km mit 0,30 &euro;), hoechstens 4.500 &euro; im Kalenderjahr, nur die einfache Strecke. '
+        + '(kein Staffelsatz mehr: seit dem Wegfall der 20-km-Stufe gilt 0,38 &euro; fuer jeden vollen Kilometer), '
+        + 'hoechstens 4.500 &euro; im Kalenderjahr, nur die einfache Strecke (kuerzeste Strassenverbindung). '
         + 'Gilt fuer Arbeitnehmer; Selbstaendige setzen Reisekosten nach &sect;&nbsp;9 Abs. 4a EStG an (Rechner 7).</p>';
   el("out-9").innerHTML = html;
 }
@@ -724,6 +795,52 @@ function renderAfa() {
   el("out-12").innerHTML = html;
 }
 
+function renderKleinbetrag() {
+  var r = kleinbetragsrechnung(el("kb-betrag").value);
+  var html = row("Rechnungsbetrag", fmtEur(r.betrag));
+  html += row("Grenze &sect; 33 UStDV", fmtEur(r.grenze));
+  html += row("<strong>Ergebnis</strong>", "<strong>" + (r.erlaubt ? "Kleinbetragsrechnung m&ouml;glich (bis 250 &euro;)" : "&uuml;ber 250 &euro; &ndash; volle Pflichtangaben n&ouml;tig") + "</strong>");
+  if (r.erlaubt) html += row("Luft bis zur Grenze", fmtEur(r.differenz));
+  html += '<p class="fine">&sect;&nbsp;33 UStDV: Eine Rechnung, deren Gesamtbetrag 250 &euro; nicht &uuml;bersteigt, muss nur '
+        + 'den vollst&auml;ndigen Namen und die Anschrift des leistenden Unternehmers, das Ausstellungsdatum, die Menge und Art '
+        + 'der Leistung sowie Entgelt und Steuerbetrag in einer Summe mit dem anzuwendenden Steuersatz enthalten. '
+        + 'Das gilt nicht f&uuml;r Rechnungen &uuml;ber Leistungen nach &sect;&nbsp;3c, 6a und 13b UStG. Eine Rechnung nach Satz 1 '
+        + 'kann immer als sonstige Rechnung (&sect;&nbsp;14 Abs. 1 Satz 4 UStG) &uuml;bermittelt werden.</p>';
+  el("out-13").innerHTML = html;
+}
+
+function renderIab() {
+  var r = iabRechner(el("iab-kosten").value, el("iab-prozent").value, el("iab-gewinn").value);
+  var html = row("Voraussichtliche Anschaffungskosten", fmtEur(r.kosten));
+  html += row("Abzugssatz (max. 50 %)", r.prozent + " %");
+  html += row("<strong>IAB-Abzug</strong>", "<strong>" + fmtEur(r.betrag) + "</strong>");
+  html += row("Gewinn vor IAB", fmtEur(r.gewinn));
+  if (!r.gewinnOk) html += row("Hinweis", '<span class="badge b-err">Gewinngrenze 200.000 &euro; &uuml;berschritten</span>');
+  html += '<p class="fine">&sect;&nbsp;7g Abs. 1 EStG: Bis zu 50 % der voraussichtlichen Anschaffungs- oder '
+        + 'Herstellungskosten des k&uuml;nftigen Wirtschaftsguts k&ouml;nnen gewinnmindernd abgezogen werden. '
+        + 'Voraussetzungen: Gewinn nach &sect;&nbsp;4 oder 5 EStG ohne IAB h&ouml;chstens 200.000 &euro;, Nutzung im Inland '
+        + 'ausschlie&szlig;lich oder fast ausschlie&szlig;lich betrieblich, Anschaffung bis zum Ende des folgenden '
+        + 'Wirtschaftsjahres, elektronische &Uuml;bermittlung der Betr&auml;ge. Summe je Betrieb h&ouml;chstens 200.000 &euro;. '
+        + 'Im Investitionsjahr wird der IAB hinzugerechnet (&sect;&nbsp;7g Abs. 2 EStG); bei Nichtinvestition r&uuml;ckwirkende '
+        + 'R&uuml;ckg&auml;ngigmachung bzw. Verzinsung nach Abs. 3. Zus&auml;tzlich Sonderabschreibung nach &sect;&nbsp;7g Abs. 5 EStG.</p>';
+  el("out-14").innerHTML = html;
+}
+
+function renderIst() {
+  var r = istVersteuerung(el("ist-umsatz").value);
+  var html = row("Gesamtumsatz Vorjahr", fmtEur(r.umsatz));
+  html += row("Grenze &sect; 20 Nr. 1 UStG", fmtEur(r.grenze));
+  html += row("<strong>Ist-Versteuerung</strong>", "<strong>" + (r.grenzeOk ? "Voraussetzung Nr. 1 erf&uuml;llt" : "&uuml;ber 800.000 &euro; &ndash; nur andere Fallgruppe") + "</strong>");
+  if (!r.grenzeOk) html += row("&Uuml;ber der Grenze um", fmtEur(r.differenz));
+  html += '<p class="fine">&sect;&nbsp;20 UStG: Das Finanzamt kann auf Antrag gestatten, die Steuer nach vereinnahmten '
+        + 'statt nach vereinbarten Entgelten zu berechnen &ndash; bei Unternehmern, deren Gesamtumsatz (&sect;&nbsp;19 Abs. 2 UStG) '
+        + 'im vorangegangenen Kalenderjahr h&ouml;chstens 800.000 &euro; betrug (Nr. 1), die nach &sect;&nbsp;148 AO von der '
+        + 'Buchf&uuml;hrungspflicht befreit sind (Nr. 2), Angeh&ouml;rige eines freien Berufs im Sinne des &sect;&nbsp;18 Abs. 1 Nr. 1 '
+        + 'EStG (Nr. 3) oder juristische Personen des &ouml;ffentlichen Rechts (Nr. 4). Nr. 3 kann auch bei h&ouml;herem Umsatz '
+        + 'greifen. Die Gestattung ist eine Ermessensentscheidung des Finanzamts, kein Automatismus.</p>';
+  el("out-15").innerHTML = html;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   el("btn-1").addEventListener("click", renderFrist);
   el("btn-2").addEventListener("click", renderStva);
@@ -737,9 +854,13 @@ document.addEventListener("DOMContentLoaded", function () {
   el("btn-10").addEventListener("click", renderGewerbe);
   el("btn-11").addEventListener("click", renderSvz);
   el("btn-12").addEventListener("click", renderAfa);
+  el("btn-13").addEventListener("click", renderKleinbetrag);
+  el("btn-14").addEventListener("click", renderIab);
+  el("btn-15").addEventListener("click", renderIst);
   renderFrist(); renderStva(); renderKu(); renderEr(); renderTools();
   renderEuer(); renderUst(); renderReise();
   renderHp(); renderPendler(); renderGewerbe(); renderSvz(); renderAfa();
+  renderKleinbetrag(); renderIab(); renderIst();
 });
 </script>
 </body>
