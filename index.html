@@ -926,9 +926,9 @@ function renderBetriebsausgaben() {
   var html = row("Gesamtaufwand", fmtEur(g));
   html += row("Betrieblicher Anteil (" + pct + " %)", "<strong>" + fmtEur(ba) + "<\/strong>");
   html += row("Privatanteil (entnommen)", fmtEur(priv));
-  html += '<p class="fine">§ 4 Abs. 5 EStG: nur der betriebliche Anteil mindert den Gewinn.
-    Gemischt genutzte Aufwendungen (Dienstwagen, Homeoffice) müssen sachgerecht aufgeteilt werden.
-    Bei Entnahmen über Gewinn + Einlagen: Typisierung 6 % der Entnahmen (§ 4 Abs. 4a).<\/p>';
+  html += '<p class="fine">§ 4 Abs. 5 EStG: nur der betriebliche Anteil mindert den Gewinn. '
+    + '    Gemischt genutzte Aufwendungen (Dienstwagen, Homeoffice) müssen sachgerecht aufgeteilt werden. '
+    + '    Bei Entnahmen über Gewinn + Einlagen: Typisierung 6 % der Entnahmen (§ 4 Abs. 4a).<\/p>';
   el("out-18").innerHTML = html;
 }
 function renderIst() {
