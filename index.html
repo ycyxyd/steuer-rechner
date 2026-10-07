@@ -358,7 +358,49 @@
     ansonsten tats&auml;chliche Aufwendungen (Fahrtenbuch / Verpflegung nach &sect;&nbsp;4 Abs. 3 EStG).</p>
     <button class="btn" id="btn-16">1 %-Regelung berechnen</button>
     <div class="out" id="out-16"></div>
-  </div><h2>14. Wenn du eine Software brauchst</h2>
+  </div><h2>14. Ermäßigte Steuersätze (§ 12 Abs. 2 UStG)  — 7 % / 0 %</h2>
+  <div class="card">
+    <p class="fine">Der reguläre Satz ist <strong>19 %</strong>. Ermäßigt sich auf
+    <strong>7 %</strong> (Vorlieferung von Gegenständen des täglichen Bedarfs,
+    Lebensmitteln, Agrar, Publikationen, Sanierung/Umbau von Wohngebäuden mit
+    ≥ 70 % Wohngebrauch) oder auf <strong>0 %</strong> (Ausfuhrlieferung,
+    innergemeinschaftliche Lieferung, bestimmte Dienstleistungen ins Nicht-EU-Ausland).</p>
+    <div class="grid">
+      <div>
+        <label for="erm-satz">Steuerkategorie</label>
+        <select id="erm-satz">
+          <option value="0.07">7 % (ermäßigt)</option>
+          <option value="0">0 % (ausfuhr-/befreit)</option>
+          <option value="0.19">19 % (Regel)</option>
+        </select>
+      </div>
+      <div>
+        <label for="erm-betrag">Umsatz (€, brutto)</label>
+        <input id="erm-betrag" type="number" min="0" step="0.01" value="1000">
+      </div>
+    </div>
+    <button class="btn" id="btn-17">Umsatzsteuer berechnen</button>
+    <div class="out" id="out-17"></div>
+  </div>
+  <h2>15. Betriebsausgaben vs. Privatanteil (§ 4 Abs. 5 EStG)</h2>
+  <div class="card">
+    <p class="fine">Betriebsausgaben = durch den Betrieb <strong>veranlasst</strong>
+    (§ 4 Abs. 4 EStG). Gemischt genutzte Aufwendungen (Dienstwagen, Homeoffice,
+    Equipment) nur der betriebliche Anteil. Privatanteil = entnommen, nicht abzugsfähig.</p>
+    <div class="grid">
+      <div>
+        <label for="ba-gesamt">Gesamtaufwand (€)</label>
+        <input id="ba-gesamt" type="number" min="0" step="100" value="2400">
+      </div>
+      <div>
+        <label for="ba-pct">Betrieblicher Anteil (%)</label>
+        <input id="ba-pct" type="number" min="0" max="100" step="1" value="60">
+      </div>
+    </div>
+    <button class="btn" id="btn-18">Privat-/Betriebsanteil trennen</button>
+    <div class="out" id="out-18"></div>
+  </div>
+  <h2>16. Wenn du eine Software brauchst</h2>
   <div class="card">
     <p class="fine" style="margin-top:0">
       <strong>Hinweis (Werbung / Affiliate):</strong> Die folgende Empfehlung ist freiwillig und
@@ -864,6 +906,31 @@ function renderKfz() {
         + '→ Tatsächliche Aufwendungen (Fahrtenbuch): § 4 Abs. 3 EStG.</p>';
   el("out-16").innerHTML = html;
 }
+function renderErm() {
+  var satz = parseFloat(el("erm-satz").value) || 0;
+  var brutto = parseFloat(el("erm-betrag").value) || 0;
+  var ust = Math.round(brutto * satz * 100) / 100;
+  var net = Math.round((brutto - ust) * 100) / 100;
+  var label = satz == 0.07 ? "7 %-Satz" : satz == 0 ? "0 % (befreit)" : "19 %-Satz";
+  var html = row("Steuerkategorie", label);
+  html += row("Umsatz brutto", fmtEur(brutto));
+  html += row("Umsatzsteuer", fmtEur(ust));
+  html += row("Netto", fmtEur(net));
+  el("out-17").innerHTML = html;
+}
+function renderBetriebsausgaben() {
+  var g = parseFloat(el("ba-gesamt").value) || 0;
+  var pct = parseFloat(el("ba-pct").value) || 0;
+  var ba = Math.round(g * pct / 100 * 100) / 100;
+  var priv = Math.round((g - ba) * 100) / 100;
+  var html = row("Gesamtaufwand", fmtEur(g));
+  html += row("Betrieblicher Anteil (" + pct + " %)", "<strong>" + fmtEur(ba) + "<\/strong>");
+  html += row("Privatanteil (entnommen)", fmtEur(priv));
+  html += '<p class="fine">§ 4 Abs. 5 EStG: nur der betriebliche Anteil mindert den Gewinn.
+    Gemischt genutzte Aufwendungen (Dienstwagen, Homeoffice) müssen sachgerecht aufgeteilt werden.
+    Bei Entnahmen über Gewinn + Einlagen: Typisierung 6 % der Entnahmen (§ 4 Abs. 4a).<\/p>';
+  el("out-18").innerHTML = html;
+}
 function renderIst() {
   var r = istVersteuerung(el("ist-umsatz").value);
   var html = row("Gesamtumsatz Vorjahr", fmtEur(r.umsatz));
@@ -896,7 +963,9 @@ document.addEventListener("DOMContentLoaded", function () {
   el("btn-14").addEventListener("click", renderIab);
   el("btn-15").addEventListener("click", renderIst);
   el("btn-16").addEventListener("click", renderKfz);
-  renderFrist(); renderStva(); renderKu(); renderEr(); renderTools(); renderKfz();
+  el("btn-17").addEventListener("click", renderErm);
+  el("btn-18").addEventListener("click", renderBetriebsausgaben);
+  renderFrist(); renderStva(); renderKu(); renderEr(); renderTools(); renderKfz(); renderErm(); renderBetriebsausgaben();
   renderEuer(); renderUst(); renderReise();
   renderHp(); renderPendler(); renderGewerbe(); renderSvz(); renderAfa();
   renderKleinbetrag(); renderIab(); renderIst();
