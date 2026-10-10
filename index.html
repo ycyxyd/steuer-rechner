@@ -685,6 +685,21 @@ function istVersteuerung(umsatz) {
   return { umsatz: u, grenze: grenze, grenzeOk: u <= grenze, differenz: Math.round((u - grenze) * 100) / 100 };
 }
 
+
+/* Elterngeld: BEEG § 2 Abs. 1-4 - 67 % des vorangegangenen Netto-Erwerbseinkommens,
+   max 1.800 EUR, min 300 EUR; <1.000: +0,1pp/2EUR (max 100 %); >1.200: -0,1pp/2EUR (min 65 %). */
+function elterngeldRechner(einkommen) {
+  var e = parseFloat(einkommen); if (isNaN(e) || e < 0) e = 0;
+  var prozent = 67;
+  if (e < 1000) { prozent = Math.min(100, 67 + (1000 - e) / 2 * 0.1); }
+  else if (e > 1200) { prozent = Math.max(65, 67 - (e - 1200) / 2 * 0.1); }
+  var roh = e * prozent / 100;
+  var betrag = Math.min(1800, roh);
+  betrag = Math.max(300, betrag);
+  return { einkommen: e, prozent: Math.round(prozent * 10) / 10, roh: Math.round(roh * 100) / 100,
+           betrag: Math.round(betrag * 100) / 100 };
+}
+
 /* Test-Hook für Node (deutsche Sonderzeichen werden zur Laufzeit gesetzt) */
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
@@ -696,6 +711,7 @@ if (typeof module !== "undefined" && module.exports) {
     gewerbesteuer: gewerbesteuer, sondervorauszahlung: sondervorauszahlung, afaLinear: afaLinear,
     kleinbetragsrechnung: kleinbetragsrechnung, iabRechner: iabRechner, istVersteuerung: istVersteuerung,
     kfzRechner: kfzRechner,
+    elterngeldRechner: elterngeldRechner,
     WOCHENTAG: WOCHENTAG, MONAT: MONAT
   };
 }
@@ -959,22 +975,15 @@ function renderIst() {
 }
 
 function renderElterngeld() {
-  var einkomst = parseFloat(el("el-inkommen").value) || 0;
-  var prozent = 0.67;
-  var maxbetrag = 1800;
-  var elterngeld = Math.min(einkommen * prozent, maxbetrag);
-  // Apply the adjustments for low/high income per BEEG §2(2) and (3)
-  if (einkommen < 1000) {
-    prozent = 0.67 + (1000 - einkommen) / 2000 * 0.33; // up to 1.0
-    elterngeld = Math.min(einkommen * prozent, maxbetrag);
-  } else if (einkommen > 1200) {
-    prozent = 0.67 - (einkommen - 1200) / 2000 * 0.02; // down to 0.65
-    elterngeld = Math.min(einkommen * prozent, maxbetrag);
-  }
-  var html = row("Monatliches Nettoeinkommen", fmtEur(einkommen));
-  html += row("Satz", (prozent*100).toFixed(2) + " %");
-  html += row("<strong>Elterngeld</strong>", "<strong>" + fmtEur(elterngeld) + "</strong>");
-  html += '<p class="fine">§ 2 BEEG: Elterngeld beträgt 67 % des vom Einkommen vor der Geburt, jedoch mindestens 300 € und höchstens 1 800 € pro Monat. Bei sehr geringem Einkommen erhöht sich der Prozentsatz, bei sehr hohem Einkommen verringert er sich.</p>';
+  var r = elterngeldRechner(el("el-inkommen").value);
+  var html = row("Monatliches Nettoeinkommen vor der Geburt", fmtEur(r.einkommen));
+  html += row("Satz (BEEG &sect;&nbsp;2)", r.prozent + " %");
+  html += row("<strong>Elterngeld (Basis)</strong>", "<strong>" + fmtEur(r.betrag) + "</strong>");
+  html += '<p class="fine">&sect;&nbsp;2 BEEG: Basiselterngeld = 67 % des durchschnittlichen monatlichen Netto-Erwerbseinkommens '
+        + 'vor der Geburt, h&ouml;chstens 1.800 &euro; und mindestens 300 &euro; je Lebensmonat. Bei Einkommen unter 1.000 &euro; '
+        + 'steigt der Prozentsatz um 0,1 Punkte je 2 &euro; (bis 100 %), &uuml;ber 1.200 &euro; sinkt er (bis 65 %). '
+        + 'Gilt f&uuml;r Basiselterngeld ohne Teilzeit (Abs. 1&ndash;4); ElterngeldPlus, Partnerbonus und '
+        + 'Anrechnung von Erwerbseinkommen w&auml;hrend des Bezugs sind hier nicht berechnet. Keine Rechtsberatung.</p>';
   el("out-19").innerHTML = html;
 }
 document.addEventListener("DOMContentLoaded", function () {
