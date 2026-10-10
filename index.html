@@ -400,6 +400,17 @@
     <button class="btn" id="btn-18">Privat-/Betriebsanteil trennen</button>
     <div class="out" id="out-18"></div>
   </div>
+  <h2>19. Elterngeld (&sect;&nbsp;2 BEEG)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="el-inkommen">Monatliches Nettoeinkommen vor der Geburt (€)</label>
+        <input id="el-inkommen" type="number" min="0" step="50" value="2000">
+      </div>
+    </div>
+    <button class="btn" id="btn-19">Elterngeld berechnen</button>
+    <div class="out" id="out-19"></div>
+  </div>
   <h2>Wenn du eine Software brauchst</h2>
   <div class="card">
     <p class="fine" style="margin-top:0">
@@ -947,6 +958,25 @@ function renderIst() {
   el("out-15").innerHTML = html;
 }
 
+function renderElterngeld() {
+  var einkomst = parseFloat(el("el-inkommen").value) || 0;
+  var prozent = 0.67;
+  var maxbetrag = 1800;
+  var elterngeld = Math.min(einkommen * prozent, maxbetrag);
+  // Apply the adjustments for low/high income per BEEG §2(2) and (3)
+  if (einkommen < 1000) {
+    prozent = 0.67 + (1000 - einkommen) / 2000 * 0.33; // up to 1.0
+    elterngeld = Math.min(einkommen * prozent, maxbetrag);
+  } else if (einkommen > 1200) {
+    prozent = 0.67 - (einkommen - 1200) / 2000 * 0.02; // down to 0.65
+    elterngeld = Math.min(einkommen * prozent, maxbetrag);
+  }
+  var html = row("Monatliches Nettoeinkommen", fmtEur(einkommen));
+  html += row("Satz", (prozent*100).toFixed(2) + " %");
+  html += row("<strong>Elterngeld</strong>", "<strong>" + fmtEur(elterngeld) + "</strong>");
+  html += '<p class="fine">§ 2 BEEG: Elterngeld beträgt 67 % des vom Einkommen vor der Geburt, jedoch mindestens 300 € und höchstens 1 800 € pro Monat. Bei sehr geringem Einkommen erhöht sich der Prozentsatz, bei sehr hohem Einkommen verringert er sich.</p>';
+  el("out-19").innerHTML = html;
+}
 document.addEventListener("DOMContentLoaded", function () {
   el("btn-1").addEventListener("click", renderFrist);
   el("btn-2").addEventListener("click", renderStva);
@@ -970,6 +1000,8 @@ document.addEventListener("DOMContentLoaded", function () {
   renderEuer(); renderUst(); renderReise();
   renderHp(); renderPendler(); renderGewerbe(); renderSvz(); renderAfa();
   renderKleinbetrag(); renderIab(); renderIst();
+  el("btn-19").addEventListener("click", renderElterngeld);
+  renderElterngeld();
 });
 </script>
 </body>
