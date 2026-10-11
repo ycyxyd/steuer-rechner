@@ -1,0 +1,89 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ycyxyd//Steuer-Rechner 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Vermieter-Fristen 2026 - Nebenkostenabrechnung & Anlage V
+X-WR-CALDESC:Fristen fuer Vermieter: Nebenkostenabrechnung (§ 556 Abs. 3 B
+ GB) und Anlage V. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angabe
+ n ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. 
+ Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStD
+ V).
+URL:https://ycyxyd.github.io/steuer-rechner/
+BEGIN:VEVENT
+UID:vermieter-nk-2025@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:Nebenkostenabrechnung 2025 an Mieter (Frist § 556 Abs. 3 BGB)
+DESCRIPTION:Abrechnung fuer den Abrechnungszeitraum 2025: dem Mieter spaete
+ stens bis zum Ablauf des zwoelften Monats nach Ende des Abrechnungszeitrau
+ ms mitzuteilen. Nach Fristablauf ist eine Nachforderung ausgeschlossen. Pr
+ uefen: umlagefaehig nach § 2 BetrKV\, Heizkosten nach HeizkostenV. Arbeit
+ shilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgebli
+ ch sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-inter
+ net.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P30D
+ACTION:DISPLAY
+DESCRIPTION:Nebenkostenabrechnung 2025 an Mieter (Frist § 556 Abs. 3 BGB)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vermieter-nk-2026@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20271231
+DTEND;VALUE=DATE:20280101
+SUMMARY:Nebenkostenabrechnung 2026 an Mieter (Frist § 556 Abs. 3 BGB)
+DESCRIPTION:Abrechnung fuer den Abrechnungszeitraum 2026: dem Mieter spaete
+ stens bis zum Ablauf des zwoelften Monats nach Ende des Abrechnungszeitrau
+ ms mitzuteilen. Nach Fristablauf ist eine Nachforderung ausgeschlossen. Pr
+ uefen: umlagefaehig nach § 2 BetrKV\, Heizkosten nach HeizkostenV. Arbeit
+ shilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgebli
+ ch sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-inter
+ net.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Nebenkostenabrechnung 2026 an Mieter (Frist § 556 Abs. 3 BGB)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vermieter-anlage-v-mit-berater@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:Anlage V / Steuererklärung 2025 abgeben (mit Steuerberater)
+DESCRIPTION:Einkuenfte aus Vermietung und Verpachtung (Anlage V)\, Frist §
+  149 Abs. 3 AO. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben 
+ ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Qu
+ elle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV)
+ .
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P30D
+ACTION:DISPLAY
+DESCRIPTION:Anlage V / Steuererklärung 2025 abgeben (mit Steuerberater)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vermieter-anlage-v-ohne-berater@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:Anlage V / Steuererklärung 2026 abgeben (ohne Steuerberater)
+DESCRIPTION:Einkuenfte aus Vermietung und Verpachtung (Anlage V)\, Frist §
+  149 Abs. 3 AO. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben 
+ ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Qu
+ elle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV)
+ .
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P30D
+ACTION:DISPLAY
+DESCRIPTION:Anlage V / Steuererklärung 2026 abgeben (ohne Steuerberater)
+END:VALARM
+END:VEVENT
+END:VCALENDAR
