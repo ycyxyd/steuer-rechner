@@ -4,197 +4,269 @@ PRODID:-//ycyxyd//Steuer-Rechner 2026//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Steuerfristen 2026 - Umsatzsteuer monatlich
-X-WR-CALDESC:Monatliche Umsatzsteuer-Voranmeldungen mit Dauerfristverlaengerung. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+X-WR-CALDESC:Monatliche Umsatzsteuer-Voranmeldungen mit Dauerfristverlaenge
+ rung. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Geweh
+ r. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gese
+ tze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 URL:https://ycyxyd.github.io/steuer-rechner/
 BEGIN:VEVENT
 UID:steuer-monatlich-2026@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270301
-DTEND;VALUE=DATE:20270301
-SUMMARY:Steuererklärung 2025 abgeben (mit Steuerberater\, § 149 Abs. 3 AO)
-DESCRIPTION:Abgabefrist mit Steuerberater. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20270302
+SUMMARY:Steuererklärung 2025 abgeben (mit Steuerberater\, § 149 Abs. 3 AO
+ )
+DESCRIPTION:Abgabefrist mit Steuerberater. Arbeitshilfe\, keine Steuer- ode
+ r Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarunge
+ n der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 
+ UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Steuererklärung 2025 abgeben (mit Steuerberater\, § 149 Abs. 3 AO)
+DESCRIPTION:Steuererklärung 2025 abgeben (mit Steuerberater\, § 149 Abs. 
+ 3 AO)
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20260310@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260310
-DTEND;VALUE=DATE:20260310
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Januar 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20260311
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Januar 2026 - Dauerfristverläng
+ erung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Januar 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Januar 2026 - Dauerfristverl
+ ängerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20260410@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260410
-DTEND;VALUE=DATE:20260410
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Februar 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20260411
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Februar 2026 - Dauerfristverlän
+ gerung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Februar 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Februar 2026 - Dauerfristver
+ längerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20260511@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260511
-DTEND;VALUE=DATE:20260511
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum März 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20260512
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum März 2026 - Dauerfristverlänge
+ rung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum März 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum März 2026 - Dauerfristverl
+ ängerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20260610@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260610
-DTEND;VALUE=DATE:20260610
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum April 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20260611
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum April 2026 - Dauerfristverlänge
+ rung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum April 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum April 2026 - Dauerfristverl
+ ängerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20260710@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260710
-DTEND;VALUE=DATE:20260710
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Mai 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20260711
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Mai 2026 - Dauerfristverlängeru
+ ng
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Mai 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Mai 2026 - Dauerfristverlän
+ gerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20260810@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260810
-DTEND;VALUE=DATE:20260810
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Juni 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20260811
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Juni 2026 - Dauerfristverlänger
+ ung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Juni 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Juni 2026 - Dauerfristverlä
+ ngerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20260910@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260910
-DTEND;VALUE=DATE:20260910
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Juli 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20260911
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Juli 2026 - Dauerfristverlänger
+ ung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Juli 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Juli 2026 - Dauerfristverlä
+ ngerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20261012@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261012
-DTEND;VALUE=DATE:20261012
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum August 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20261013
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum August 2026 - Dauerfristverläng
+ erung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum August 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum August 2026 - Dauerfristverl
+ ängerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20261110@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261110
-DTEND;VALUE=DATE:20261110
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum September 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20261111
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum September 2026 - Dauerfristverl
+ ängerung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum September 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum September 2026 - Dauerfristv
+ erlängerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20261210@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261210
-DTEND;VALUE=DATE:20261210
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Oktober 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20261211
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Oktober 2026 - Dauerfristverlän
+ gerung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Oktober 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Oktober 2026 - Dauerfristver
+ längerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20270111@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270111
-DTEND;VALUE=DATE:20270111
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum November 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20270112
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum November 2026 - Dauerfristverlä
+ ngerung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum November 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum November 2026 - Dauerfristve
+ rlängerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-m-dfv-20270210@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270210
-DTEND;VALUE=DATE:20270210
-SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Dezember 2026 - Dauerfristverlängerung
-DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DTEND;VALUE=DATE:20270211
+SUMMARY:Umsatzsteuer-Voranmeldung Zeitraum Dezember 2026 - Dauerfristverlä
+ ngerung
+DESCRIPTION:Monatliche Voranmeldung\, ein Monat spaeter (§ 46 UStDV). Arbe
+ itshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeb
+ lich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-int
+ ernet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
-DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Dezember 2026 - Dauerfristverlängerung
+DESCRIPTION:Umsatzsteuer-Voranmeldung Zeitraum Dezember 2026 - Dauerfristve
+ rlängerung
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:ustva-sondervorauszahlung-2026@steuer-rechner.ycyxyd.github.io
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20270210
-DTEND;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
 SUMMARY:Sondervorauszahlung Dauerfristverlängerung (§ 47 UStDV)
-DESCRIPTION:Ein Elftel der Vorauszahlungen des Vorjahres\, zu entrichten zusammen mit der Voranmeldung fuer Dezember. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+DESCRIPTION:Ein Elftel der Vorauszahlungen des Vorjahres\, zu entrichten zu
+ sammen mit der Voranmeldung fuer Dezember. Arbeitshilfe\, keine Steuer- od
+ er Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarung
+ en der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18
+  UStG\, §§ 46\, 47 UStDV).
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 TRIGGER:-P7D
