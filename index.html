@@ -411,6 +411,25 @@
     <button class="btn" id="btn-19">Elterngeld berechnen</button>
     <div class="out" id="out-19"></div>
   </div>
+  <h2>20. Steuererm&#228;ssigung &sect;&nbsp;35a EStG (haushaltsnah &amp; Handwerker)</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="a35a-hh">Haushaltsnahe Dienstleistung &ndash; Arbeitskosten (Rechnungsbetrag, &euro;)</label>
+        <input id="a35a-hh" type="number" min="0" step="50" value="1200">
+      </div>
+      <div>
+        <label for="a35a-hwk">Handwerkerleistung gesamt (Rechnungsbetrag, &euro;)</label>
+        <input id="a35a-hwk" type="number" min="0" step="50" value="3000">
+      </div>
+      <div>
+        <label for="a35a-arb">davon Arbeitskosten (nur die rechnen, &euro;)</label>
+        <input id="a35a-arb" type="number" min="0" step="50" value="1500">
+      </div>
+    </div>
+    <button class="btn" id="btn-22">Steuererm&#228;ssigung berechnen</button>
+    <div class="out" id="out-22"></div>
+  </div>
   <h2>Wenn du eine Software brauchst</h2>
   <div class="card">
     <p class="fine" style="margin-top:0">
@@ -701,6 +720,17 @@ function elterngeldRechner(einkommen) {
 }
 
 /* Test-Hook für Node (deutsche Sonderzeichen werden zur Laufzeit gesetzt) */
+function steuererm35a(hh, hwk, arb) {
+  var hhv = parseFloat(hh); if (isNaN(hhv) || hhv < 0) hhv = 0;
+  var hwkv = parseFloat(hwk); if (isNaN(hwkv) || hwkv < 0) hwkv = 0;
+  var arbv = parseFloat(arb); if (isNaN(arbv) || arbv < 0) arbv = 0;
+  if (arbv > hwkv) arbv = hwkv;
+  var r1 = Math.min(hhv, 4000) * 0.20;
+  var r2 = Math.min(arbv, 1200) * 0.20;
+  return { hh: hhv, hwk: hwkv, arb: arbv, erm1: Math.round(r1 * 100) / 100,
+           erm2: Math.round(r2 * 100) / 100, gesamt: Math.round((r1 + r2) * 100) / 100 };
+}
+
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     steuerTermin: steuerTermin, ustvaTermine: ustvaTermine,
@@ -712,6 +742,7 @@ if (typeof module !== "undefined" && module.exports) {
     kleinbetragsrechnung: kleinbetragsrechnung, iabRechner: iabRechner, istVersteuerung: istVersteuerung,
     kfzRechner: kfzRechner,
     elterngeldRechner: elterngeldRechner,
+    steuererm35a: steuererm35a,
     WOCHENTAG: WOCHENTAG, MONAT: MONAT
   };
 }
@@ -986,6 +1017,20 @@ function renderElterngeld() {
         + 'Anrechnung von Erwerbseinkommen w&auml;hrend des Bezugs sind hier nicht berechnet. Keine Rechtsberatung.</p>';
   el("out-19").innerHTML = html;
 }
+function render35a() {
+  var r = steuererm35a(el("a35a-hh").value, el("a35a-hwk").value, el("a35a-arb").value);
+  var html = row("Haushaltsnahe Dienstleistungen (bis 4.000 &euro; Anrechnungslimite)", fmtEur(r.hh));
+  html += row("&rarr; Erm&#228;ssigung (20 %)", fmtEur(r.erm1));
+  html += row("Handwerker-Arbeitskosten (bis 1.200 &euro; Anrechnungslimite)", fmtEur(r.arb));
+  html += row("&rarr; Erm&#228;ssigung (20 %)", fmtEur(r.erm2));
+  html += row("<strong>Summe Steuererm&#228;ssigung &sect;&nbsp;35a</strong>", "<strong>" + fmtEur(r.gesamt) + "</strong>");
+  html += '<p class="fine">&sect;&nbsp;35a EStG: 20 % der Aufwendungen (haushaltsnahe Dienstleistungen h&ouml;chstens 4.000 &euro;, '
+        + 'Handwerkerleistungen h&ouml;chstens 1.200 &euro; &ndash; bei Handwerkerrechnungen z&auml;hlen nur die Arbeitskosten, '
+        + 'nicht Material). Die Erm&#228;ssigung wird von der tariflichen Einkommensteuer (vermindert um sonstige '
+        + 'Steuererm&#228;ssigungen) abgezogen. Voraussetzungen: Rechnung erhalten + Zahlung auf das Konto des Erbringers '
+        + '(&sect;&nbsp;35a Abs. 5). Keine Steuerberatung.</p>'
+  el("out-22").innerHTML = html;
+}
 document.addEventListener("DOMContentLoaded", function () {
   el("btn-1").addEventListener("click", renderFrist);
   el("btn-2").addEventListener("click", renderStva);
@@ -1011,6 +1056,8 @@ document.addEventListener("DOMContentLoaded", function () {
   renderKleinbetrag(); renderIab(); renderIst();
   el("btn-19").addEventListener("click", renderElterngeld);
   renderElterngeld();
+  el("btn-22").addEventListener("click", render35a);
+  render35a();
 });
 </script>
 </body>
