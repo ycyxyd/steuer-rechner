@@ -1,0 +1,79 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ycyxyd//Steuer-Rechner 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Steuerfristen 2026 - ohne Steuerberater
+X-WR-CALDESC:Fristen fuer Freiberufler / Kleinunternehmer ohne Steuerberater. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+URL:https://ycyxyd.github.io/steuer-rechner/
+BEGIN:VEVENT
+UID:steuer-ohne-berater-2026@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260731
+DTEND;VALUE=DATE:20260731
+SUMMARY:Steuererklärung 2025 abgeben (§ 149 Abs. 3 AO)
+DESCRIPTION:Abgabefrist ohne Steuerberater. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Steuererklärung 2025 abgeben (§ 149 Abs. 3 AO)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-q20260410@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260410
+DTEND;VALUE=DATE:20260410
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 1 2026 (§ 18 Abs. 1 UStG)
+DESCRIPTION:Abgabe und Zahlung bis zum 10. des Folgemonats. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 1 2026 (§ 18 Abs. 1 UStG)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-q20260710@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260710
+DTEND;VALUE=DATE:20260710
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 2 2026 (§ 18 Abs. 1 UStG)
+DESCRIPTION:Abgabe und Zahlung bis zum 10. des Folgemonats. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 2 2026 (§ 18 Abs. 1 UStG)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-q20261012@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261012
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 3 2026 (§ 18 Abs. 1 UStG)
+DESCRIPTION:Abgabe und Zahlung bis zum 10. des Folgemonats. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 3 2026 (§ 18 Abs. 1 UStG)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-q20270111@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270111
+DTEND;VALUE=DATE:20270111
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 4 2026 (§ 18 Abs. 1 UStG)
+DESCRIPTION:Abgabe und Zahlung bis zum 10. des Folgemonats. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 4 2026 (§ 18 Abs. 1 UStG)
+END:VALARM
+END:VEVENT
+END:VCALENDAR

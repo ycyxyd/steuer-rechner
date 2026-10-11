@@ -57,6 +57,13 @@
        color:var(--primary-active);margin-bottom:14px}
   mark{background:rgba(255,196,0,.35);padding:0 2px;border-radius:3px}
   @media print{.btn,.top{display:none}body{background:#fff}}
+/* %%ICS-CSS%% */
+  .ics-dl{background:var(--surface-soft);border:1px solid var(--hairline);border-left:3px solid var(--primary);border-radius:var(--r-lg);padding:14px 18px;margin:16px 0;font-size:15px;line-height:1.7}
+  .ics-dl strong{color:var(--ink)}
+  .ics-dl a{color:var(--primary-active);text-decoration:underline;text-underline-offset:2px}
+  .ics-dl a:hover{color:var(--primary)}
+  .ics-note{display:block;margin-top:6px;font-size:12.5px;color:var(--muted-soft)}
+/* /%%ICS-CSS%% */
 </style>
 
 <!-- SEO-JSONLD:START (managed by tool/add_seo_structure.py) -->
@@ -305,7 +312,23 @@
     </div>
     <button class="btn" id="btn-2">Termine anzeigen</button>
     <div class="out" id="out-2"></div>
+  </div><!-- %%ICS-LINKS%% -->
+
+  <div class="ics-dl" id="fristen-kalender">
+    <strong>Alle Fristen als Kalender-Datei (.ics):</strong>
+    Einmal importieren &ndash; Google/Outlook/Apple Kalender erinnert dann 7 Tage vorher.
+    <a href="steuerfristen-2026-ohne-berater.ics" download>ohne Steuerberater</a> &middot;
+    <a href="steuerfristen-2026-mit-berater.ics" download>mit Steuerberater + Dauerfristverl&auml;ngerung</a> &middot;
+    <a href="steuerfristen-2026-umsatzsteuer-monatlich.ics" download>Umsatzsteuer monatlich</a>
+    <span class="ics-note">Arbeitshilfe, keine Steuer- oder Rechtsberatung. Grundlage: &sect;&nbsp;149 AO, &sect;&nbsp;18 UStG, &sect;&sect;&nbsp;46&nbsp;f. UStDV.</span>
   </div>
+<!-- /%%ICS-LINKS%% -->
+
+
+
+
+
+
 
   <h2 id="3-kleinunternehmerregelung-19-ustg">3. Kleinunternehmerregelung &sect;&nbsp;19 UStG</h2>
   <div class="card">

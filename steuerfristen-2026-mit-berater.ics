@@ -1,0 +1,79 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ycyxyd//Steuer-Rechner 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Steuerfristen 2026 - mit Steuerberater
+X-WR-CALDESC:Fristen mit Steuerberater und Dauerfristverlaengerung. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+URL:https://ycyxyd.github.io/steuer-rechner/
+BEGIN:VEVENT
+UID:steuer-mit-berater-2026@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270301
+SUMMARY:Steuererklärung 2025 abgeben (mit Steuerberater\, § 149 Abs. 3 AO)
+DESCRIPTION:Abgabefrist mit Steuerberater. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Steuererklärung 2025 abgeben (mit Steuerberater\, § 149 Abs. 3 AO)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-dfv-q20260511@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260511
+DTEND;VALUE=DATE:20260511
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 1 2026 - Dauerfristverlängerung (§ 46 UStDV)
+DESCRIPTION:Ein Monat spaeter dank Dauerfristverlaengerung. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 1 2026 - Dauerfristverlängerung (§ 46 UStDV)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-dfv-q20260810@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260810
+DTEND;VALUE=DATE:20260810
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 2 2026 - Dauerfristverlängerung (§ 46 UStDV)
+DESCRIPTION:Ein Monat spaeter dank Dauerfristverlaengerung. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 2 2026 - Dauerfristverlängerung (§ 46 UStDV)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-dfv-q20261110@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261110
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 3 2026 - Dauerfristverlängerung (§ 46 UStDV)
+DESCRIPTION:Ein Monat spaeter dank Dauerfristverlaengerung. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 3 2026 - Dauerfristverlängerung (§ 46 UStDV)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ustva-dfv-q20270210@steuer-rechner.ycyxyd.github.io
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270210
+SUMMARY:Umsatzsteuer-Voranmeldung Quartal 4 2026 - Dauerfristverlängerung (§ 46 UStDV)
+DESCRIPTION:Ein Monat spaeter dank Dauerfristverlaengerung. Arbeitshilfe\, keine Steuer- oder Rechtsberatung. Angaben ohne Gewehr. Massgeblich sind die Verlautbarungen der Finanzverwaltung. Quelle: gesetze-im-internet.de (§ 149 AO\, § 18 UStG\, §§ 46\, 47 UStDV).
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Umsatzsteuer-Voranmeldung Quartal 4 2026 - Dauerfristverlängerung (§ 46 UStDV)
+END:VALARM
+END:VEVENT
+END:VCALENDAR
