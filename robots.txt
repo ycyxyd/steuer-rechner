@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ycyxyd.github.io/steuer-rechner/sitemap.xml
