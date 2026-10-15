@@ -752,10 +752,20 @@ function adjustDeadline(d) {
 }
 function mkDate(y, m, day) { return adjustDeadline(new Date(y, m - 1, day)); }
 
-/* Steuererklärung: ohne Berater 31.07. des Folgejahres, mit Berater 28.02. des übernächsten (§ § 149 Abs. 3 AO). */
+/* Steuererklärung: ohne Berater 31.07. des Folgejahres; mit Berater "letzter Tag des Monats
+   Februar" des übernächsten Jahres (§ 149 Abs. 3 AO — Wortlaut, nicht "28.02.").
+   ⚠️ 2026-10-15 第 47 班: 旧写法 mkDate(y,2,28) 在两种情形下算错日期 —— 对税务内容就是产品级事故:
+     (a) Schaltjahr (VZ 2020, VZ 2026): § 149 Abs. 3 AO sagt "letzter Tag des Monats Februar"
+         = 29.02.; die alte Fassung lieferte 28.02. (einen Tag zu frueh).
+     (b) 28.02. faellt auf Sa/So: adjustDeadline() schob vom 28. weg, nicht vom echten Monatsletzten.
+   Jetzt: letzter Tag des Februars (Date(y,2,0)), danach § 108 Abs. 3 AO-Verschiebung. */
+function letzterTagFebruar(y) {
+  /* Date(y, 2, 0) = Tag 0 des Monats Maerz = letzter Tag des Februars (Schaltjahr-sicher). */
+  return new Date(y, 2, 0);
+}
 function steuerTermin(vz, mitBerater) {
   vz = parseInt(vz, 10);
-  if (mitBerater) return mkDate(vz + 2, 2, 28);
+  if (mitBerater) return adjustDeadline(letzterTagFebruar(vz + 2));
   return mkDate(vz + 1, 7, 31);
 }
 
@@ -1102,7 +1112,7 @@ function renderFrist() {
   var html = row("Abgabefrist", fmt(d));
   html += row("Grundlage", mitBerater ? "§ 149 Abs. 3 AO – letzter Tag des Monats Februar des übernächsten Jahres" : "§ 149 Abs. 2 AO – sieben Monate nach Ablauf des Kalenderjahres (31.07.)");
   html += row("In Tagen", tage >= 0 ? (tage + " Tage") : ("Frist bereits abgelaufen (" + Math.abs(tage) + " Tage)"));
-  html += '<p class="fine">Fällt der 31.07. bzw. 28.02. auf ein Wochenende, verschiebt sich die Frist auf den nächsten Werktag. Verlängerung darüber hinaus nur auf Antrag (§ 109 AO).</p>';
+  html += '<p class="fine">Fällt der 31.07. bzw. der letzte Tag des Monats Februar auf ein Wochenende, verschiebt sich die Frist auf den nächsten Werktag (§ 108 Abs. 3 AO). Verlängerung darüber hinaus nur auf Antrag (§ 109 AO).</p>';
   el("out-1").innerHTML = html;
 }
 
