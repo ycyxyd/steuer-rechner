@@ -208,14 +208,14 @@
         {
           "@type": "ListItem",
           "position": 20,
-          "name": "20. Mutterschutzgeld (§ 3 MuSchG)",
-          "url": "https://ycyxyd.github.io/steuer-rechner/#20-mutterschutzgeld-3-muschg"
+          "name": "20. Mutterschutzgeld (§ 24i SGB V, § 20 MuSchG)",
+          "url": "https://ycyxyd.github.io/steuer-rechner/#20-mutterschutzgeld-3-muschg-24i-sgb-v"
         },
         {
           "@type": "ListItem",
           "position": 21,
-          "name": "21. Umzugskostenpauschale (§ 9 Abs. 1 Nr. 5 EStG)",
-          "url": "https://ycyxyd.github.io/steuer-rechner/#21-umzugskostenpauschale-9-abs-1-nr-5-estg"
+          "name": "21. Doppelte Haushaltsführung (§ 9 Abs. 1 Nr. 5 EStG)",
+          "url": "https://ycyxyd.github.io/steuer-rechner/#21-doppelte-haushaltsfuehrung-9-abs-1-nr-5-estg"
         },
         {
           "@type": "ListItem",
@@ -276,9 +276,7 @@
     <li><a href="#17-ermaessigte-steuersaetze-12-abs-2-ustg-7-0">17. Ermäßigte Steuersätze (§ 12 Abs. 2 UStG) — 7 % / 0 %</a></li>
     <li><a href="#18-betriebsausgaben-vs-privatanteil-4-abs-5-estg">18. Betriebsausgaben vs. Privatanteil (§ 4 Abs. 5 EStG)</a></li>
     <li><a href="#19-elterngeld-2-beeg">19. Elterngeld (§ 2 BEEG)</a></li>
-    <li><a href="#20-mutterschutzgeld-3-muschg">20. Mutterschutzgeld (§ 3 MuSchG)</a></li>
-    <li><a href="#21-umzugskostenpauschale-9-abs-1-nr-5-estg">21. Umzugskostenpauschale (§ 9 Abs. 1 Nr. 5 EStG)</a></li>
-    <li><a href="#22-steuerermaessigung-35a-estg-haushaltsnah-handwerker">22. Steuerermäßigung (§ 35a EStG) (haushaltsnah & Handwerker)</a></li>
+<li><a href="#20-mutterschutzgeld-3-muschg-24i-sgb-v">20. Mutterschutzgeld (§ 24i SGB V)</a></li><li><a href="#21-doppelte-haushaltsfuehrung-9-abs-1-nr-5-estg">21. Doppelte Haushaltsführung (§ 9 Abs. 1 Nr. 5 EStG)</a></li>    <li><a href="#22-steuerermaessigung-35a-estg-haushaltsnah-handwerker">22. Steuerermäßigung (§ 35a EStG) (haushaltsnah & Handwerker)</a></li>
   </ul>
 </nav>
 <!-- SEO-TOC:END -->
@@ -630,7 +628,6 @@
     <div class="out" id="out-18"></div>
   </div>
   <h2 id="19-elterngeld-2-beeg">19. Elterngeld (&sect;&nbsp;2 BEEG)</h2>
-  <h2 id="20-mutterschutzgeld-3-muschg">20. Mutterschutzgeld (§ 3 MuSchG)</h2>
   <div class="card">
     <div class="grid">
       <div>
@@ -641,29 +638,36 @@
     <button class="btn" id="btn-19">Elterngeld berechnen</button>
     <div class="out" id="out-19"></div>
   </div>
-  <h2 id="21-umzugskostenpauschale-9-abs-1-nr-5-estg">21. Umzugskostenpauschale (§ 9 Abs. 1 Nr. 5 EStG)</h2>
+
+  <h2 id="20-mutterschutzgeld-3-muschg-24i-sgb-v">20. Mutterschutzgeld (§ 24i SGB V, § 20 MuSchG)</h2>
   <div class="card">
     <div class="grid">
       <div>
-        <label for="mut-kinder">Anzahl Kinder</label>
-        <input id="mut-kinder" type="number" min="0" step="1" value="0">
+        <label for="mut-netto">Monatliches Nettoeinkommen vor der Schutzfrist (€)</label>
+        <input id="mut-netto" type="number" min="0" step="50" value="2000">
+      </div>
+      <div>
+        <label for="mut-kinder">Anzahl Kinder (Mehrlinge verlängern die Schutzfrist)</label>
+        <input id="mut-kinder" type="number" min="0" step="1" value="1">
       </div>
     </div>
-    <button class="btn" id="btn-20">Mutterschutz berechnen</button>
+    <button class="btn" id="btn-20">Mutterschutzgeld berechnen</button>
     <div class="out" id="out-20"></div>
   </div>
+
+  <h2 id="21-doppelte-haushaltsfuehrung-9-abs-1-nr-5-estg">21. Doppelte Haushaltsführung (§ 9 Abs. 1 Nr. 5 EStG)</h2>
   <div class="card">
     <div class="grid">
       <div>
-        <label for="umz-distance">Entfernung (km)</label>
-        <input id="umz-distance" type="number" min="0" step="0.1" value="0">
+        <label for="dhf-miete">Unterkunftskosten am Beschäftigungsort (€ / Monat)</label>
+        <input id="dhf-miete" type="number" min="0" step="10" value="800">
       </div>
       <div>
-        <label for="umz-fahrten">Anzahl Fahrten</label>
-        <input id="umz-fahrten" type="number" min="0" step="1" value="0">
+        <label for="dhf-heim">Familienheimfahrten pro Jahr (steuerlich: eine pro Woche)</label>
+        <input id="dhf-heim" type="number" min="0" step="1" value="48">
       </div>
     </div>
-    <button class="btn" id="btn-21">Umzugskosten berechnen</button>
+    <button class="btn" id="btn-21">Höhe berechnen</button>
     <div class="out" id="out-21"></div>
   </div>
   <h2 id="22-steuerermaessigung-35a-estg-haushaltsnah-handwerker">22. Steuerermäßigung (§ 35a EStG) (haushaltsnah &amp; Handwerker)</h2>
@@ -984,34 +988,66 @@ function elterngeldRechner(einkommen) {
   return { einkommen: e, prozent: Math.round(prozent * 10) / 10, roh: Math.round(roh * 100) / 100,
            betrag: Math.round(betrag * 100) / 100 };
 }
-function mutterschutzRechner(kinder) {
+function mutterschutzgeldRechner(nettoMonat, kinder) {
+  // Quellen (2026-10-15 第 45 班, 逐条对 gesetze-im-internet.de 原文):
+  //  § 3 Abs. 1 MuSchG  : 前 6 周 Beschaeftigungsverbot (Schutzfrist vor der Entbindung)
+  //  § 3 Abs. 2 MuSchG  : 后 8 周;  Fruehgeburt / Mehrlingsgeburt / Behinderung -> 12 周
+  //  § 24i Abs. 2 SGB V : Mutterschaftsgeld = 前 3 个月平均日净工资, 但 "hoechstens 13 Euro
+  //                       fuer den Kalendertag"
+  //  § 20 Abs. 1 MuSchG : 差额由雇主补足 (Zuschuss zum Mutterschaftsgeld) = 13 EUR - 日净工资
+  //  ⇒ 实际到手 ≈ 原净工资; 不因孩子数量翻倍 (Mehrlinge verlaengern die Frist, nicht das Geld).
+  var netto = parseFloat(nettoMonat) || 0;
+  if (netto < 0) netto = 0;
   var k = parseInt(kinder) || 0;
   if (k < 0) k = 0;
-  // § 3 MuSchG: Mutterschutz lohnt sechs Wochen vor und acht Wochen nach der Entbindung.
-  // Das Mutterschutzgeld entspricht dem durchschnittlichen Nettoentgelt der letzten drei Monate vor Beginn des Schutzzeitraums.
-  // Für Vereinfachung nehmen wir ein fixes Monatsbetrag als Platzhalter (realistisch wäre individuelles Berechnen).
-  // Hier setzen wir ein Beispiel: 1300 € pro Monat (angenommenes durchschnittliches Nettoentgelt).
-  var monatlich = 1300; // Beispielwert, sollte tatsächlich individuell berechnet werden
-  var weeks = (6 + 8) * k; // insgesamt Wochen Schutz pro Kind
-  var months = weeks / 4.345; // ungefähre Umwandlung Wochen in Monate
-  var betrag = monatlich * months;
-  return { kinder: k, betrag: betrag };
+  var tage = 30;                       // 月 -> 日 的换算基准 (与 § 24i 的 kalendertaeglich 同口径)
+  var tagesNetto = netto / tage;
+  var kkProTag = Math.min(tagesNetto, 13);   // § 24i Abs. 2 SGB V: 上限 13 EUR/Kalendertag
+  var zuschussProTag = Math.max(0, tagesNetto - 13);  // § 20 Abs. 1 MuSchG
+  var wochen = (k >= 1) ? (6 + 12) : (6 + 8);  // § 3 Abs. 2: Mehrlinge -> 12 statt 8 Wochen
+  // 与同文件其他 Rechner 同口径：内部就四舍五入到分，
+  // 否则引擎给的 53.6666… 与页面 fmtEur() 显示的 53,67 不一致（第 45 班的新断言抓到的）。
+  var r2 = function (x) { return Math.round(x * 100) / 100; };
+  return {
+    kinder: k,
+    wochenVor: 6,
+    wochenNach: (k >= 1) ? 12 : 8,
+    wochen: wochen,
+    tagesNetto: r2(tagesNetto),
+    kkProTag: r2(kkProTag),
+    zuschussProTag: r2(zuschussProTag),
+    gesamtProTag: r2(kkProTag + zuschussProTag),
+    netto: netto
+  };
 }
 
 function umzugskostenRechner(distance, fahrten) {
-  var dist = parseFloat(distance) || 0;
-  var f = parseInt(fahrten) || 0;
-  if (dist < 0) dist = 0;
-  if (f < 0) f = 0;
-  // § 9 Abs. 1 Nr. 5 EStG: Bei einem Umzug wegen der ersten Aufnahme einer beruflichen Tätigkeit können die nachweisbaren Umzugskosten als Werbungskosten abgezogen werden.
-  // Bei einem Umzug aus beruflichen Gründen können 30 % der nachweisbaren Umzugskosten als Werbungskosten abgezogen werden.
-  // Bei einem privaten Umzug können die Umzugskosten nicht als Werbungskosten abgezogen werden.
-  // Wir pauschalieren: angenommen 0,30 € pro km (wie bei Reisekosten) und dass 50% der Fahrten beruflich sind (vereinfachte Annahme).
-  // Für eine präzisere Berechnung müsste man den Zweck jeder Fahrt kennen.
-  var kosten_pro_km = 0.30;
-  var beruflicher_anteil = 0.5; // 50% der Fahrten beruflich
-  var betrag = dist * kosten_pro_km * f * beruflicher_anteil;
-  return { distance: dist, fahrten: f, betrag: betrag };
+  // Quellen (2026-10-15 第 45 班, 逐条对 gesetze-im-internet.de 原文):
+  //  § 9 Abs. 1 Satz 3 Nr. 5 EStG = "notwendige Mehraufwendungen, die einem Arbeitnehmer
+  //  wegen einer beruflich veranlassten doppelten Haushaltsfuehrung entstehen".
+  //  ⚠️ § 9 EStG enthaelt KEIN "Umzug" (原文本轮三次交叉核实, 详见风险文件)。
+  //  § 9 Abs. 1 Nr. 5 Satz 4 EStG: Unterkunftskosten hoechstens 1 000 EUR/Monat (Inland),
+  //                                hoechstens 2 000 EUR/Monat (Ausland).
+  //  § 9 Abs. 1 Nr. 5 Satz 5 EStG: Familienheimfahrt 每周一次.
+  //  ⇒ 本计算器 = doppelte Haushaltsfuehrung, NICHT Umzugspauschale.
+  var miete = parseFloat(distance) || 0;   // Feld 1 = Unterkunftskosten EUR/Monat (见 UI 标签)
+  var heim = parseInt(fahrten) || 0;       // Feld 2 = Familienheimfahrten pro Monat
+  if (miete < 0) miete = 0;
+  if (heim < 0) heim = 0;
+  var grenze = 1000;                       // § 9 Abs. 1 Nr. 5 Satz 4 EStG (Inland)
+  var angesetzt = Math.min(miete, grenze);
+  var gekappt = miete > grenze;
+  // Familienheimfahrt: 每周一次; 单程距离 x 0,30 EUR (Entfernungspauschale-Aequivalent fuer
+  // Familienheimfahrten wird ueber die Entfernungspauschale abgegolten, § 9 Abs. 2 Satz 1);
+  // 本计算器只数次数, 不算 Euro/km — 避免再引入一个未经原文核实的 km-Satz.
+  return {
+    miete: miete,
+    grenze: grenze,
+    angesetzt: angesetzt,
+    gekappt: gekappt,
+    heimfahrten: heim,
+    jahr: angesetzt * 12
+  };
 }
 
 /* Test-Hook für Node (deutsche Sonderzeichen werden zur Laufzeit gesetzt) */
@@ -1038,6 +1074,8 @@ if (typeof module !== "undefined" && module.exports) {
     kfzRechner: kfzRechner,
     elterngeldRechner: elterngeldRechner,
     steuererm35a: steuererm35a,
+    mutterschutzgeldRechner: mutterschutzgeldRechner,
+    umzugskostenRechner: umzugskostenRechner,
     WOCHENTAG: WOCHENTAG, MONAT: MONAT
   };
 }
@@ -1313,18 +1351,42 @@ function renderElterngeld() {
   el("out-19").innerHTML = html;
 }
 function renderMutterschutz() {
-  var r = mutterschutzRechner(el("mut-kinder").value);
-  var html = row("Anzahl Kinder", r.kinder);
-  html += row("<strong>Mutterschutzgeld</strong>", "<strong>" + fmtEur(r.betrag) + "</strong>");
-  html += '<p class="fine">§ 3 MuSchG: Mutterschutz lohnt sechs Wochen vor und acht Wochen nach der Entbindung. Bei Frühgeburt bzw. Mehrlingsgeburt verlängert sich der Zeitraum. Bei Entnahme von Lohn während des Schutzzeitraums tritt der Arbeitgeber in Vorauszahlung ein. Bei Arbeitsverbot während des Beschäftigungsverbots: Lohnfortzahlung durch den Arbeitgeber. Bei Kündigungsverbot während des Beschäftigungsverbots: Kündigung unwirksam. Bei Verletzung des Beschäftigungsverbots: Schadensersatzanspruch. Bei Verstößen gegen das MuSchG: Bußgeld bis zu 500 EUR oder Freiheitsstrafe bis zu einem Jahr.</p>';
+  var r = mutterschutzgeldRechner(el("mut-netto").value, el("mut-kinder").value);
+  var html = row("Monatliches Nettoeinkommen", fmtEur(r.netto));
+  html += row("Schutzfrist vor der Entbindung", r.wochenVor + " Wochen");
+  html += row("Schutzfrist nach der Entbindung", r.wochenNach + " Wochen");
+  html += row("Krankengeld der Kasse je Kalendertag (max. 13 &euro;)", fmtEur(r.kkProTag));
+  html += row("Zuschuss des Arbeitgebers je Kalendertag", fmtEur(r.zuschussProTag));
+  html += row("<strong>Zusammen je Kalendertag</strong>", "<strong>" + fmtEur(r.gesamtProTag) + "</strong>");
+  html += '<p class="fine">&sect;&nbsp;3 MuSchG: Besch&auml;ftigungsverbot sechs Wochen vor und acht Wochen nach der '
+        + 'Entbindung; bei Fr&uuml;hgeburten, Mehrlingsgeburten und festgestellter Behinderung des Kindes verl&auml;ngert '
+        + 'sich die Frist nach der Entbindung auf zw&ouml;lf Wochen (&sect;&nbsp;3 Abs.&nbsp;2). Mehrere Kinder '
+        + 'verl&auml;ngern also die <em>Frist</em>, nicht den Betrag. '
+        + 'H&ouml;he: &sect;&nbsp;24i Abs.&nbsp;2 SGB&nbsp;V &ndash; das um die gesetzlichen Abz&uuml;ge verminderte '
+        + 'durchschnittliche <em>kalendert&auml;gliche</em> Arbeitsentgelt der letzten drei abgerechneten Kalendermonate, '
+        + 'h&ouml;chstens 13&nbsp;&euro; je Kalendertag; den &uuml;bersteigenden Betrag zahlt der Arbeitgeber als Zuschuss '
+        + '(&sect;&nbsp;20 Abs.&nbsp;1 MuSchG). Ohne eigene Kalenderdaten ist hier Monatsnetto/30 als N&auml;herung '
+        + 'gerechnet &ndash; die echte Bemessung braucht die drei Abrechnungen. Keine Rechtsberatung.</p>';
   el("out-20").innerHTML = html;
 }
+
 function renderUmzugskosten() {
-  var r = umzugskostenRechner(el("umz-distance").value, el("umz-fahrten").value);
-  var html = row("Entfernung", fmtKm(r.distance));
-  html += row("Anzahl Fahrten", r.fahrten);
-  html += row("<strong>Umzugskostenpauschale</strong>", "<strong>" + fmtEur(r.betrag) + "</strong>");;
-  html += '<p class="fine">§ 9 Abs. 1 Nr. 5 EStG: Bei einem Umzug wegen der ersten Aufnahme einer beruflichen Tätigkeit können die nachweisbaren Umzugskosten als Werbungskosten abgezogen werden. Bei einem Umzug aus beruflichen Gründen können 30 % der nachweisbaren Umzugskosten als Werbungskosten abgezogen werden. Bei einem privaten Umzug können die Umzugskosten nicht als Werbungskosten abgezogen werden.</p>';
+  var r = umzugskostenRechner(el("dhf-miete").value, el("dhf-heim").value);
+  var html = row("Unterkunftskosten am Besch&auml;ftigungsort", fmtEur(r.miete) + " / Monat");
+  html += row("Gesetzliche Grenze (Inland, &sect;&nbsp;9 Abs.&nbsp;1 Nr.&nbsp;5 EStG)", fmtEur(r.grenze) + " / Monat");
+  html += row("<strong>Anzusetzen</strong>", "<strong>" + fmtEur(r.angesetzt) + " / Monat</strong>"
+            + (r.gekappt ? " <span class=\"fine\">(auf die Grenze gekappt)</span>" : ""));
+  html += row("Familienheimfahrten", r.heimfahrten + " pro Jahr");
+  html += row("H&ouml;chstens im Jahr (nur Unterkunft)", fmtEur(r.jahr));
+  html += '<p class="fine">&sect;&nbsp;9 Abs.&nbsp;1 Satz&nbsp;3 Nr.&nbsp;5 EStG erfasst &bdquo;notwendige Mehraufwendungen, '
+        + 'die einem Arbeitnehmer wegen einer <em>beruflich veranlassten doppelten Haushaltsf&uuml;hrung</em> entstehen&ldquo;: '
+        + 'Unterkunftskosten h&ouml;chstens 1.000&nbsp;&euro; je Monat bei einer Unterkunft im Inland und h&ouml;chstens '
+        + '2.000&nbsp;&euro; bei einer Unterkunft im Ausland; die Wege zwischen Besch&auml;ftigungsort und eigenem Hausstand '
+        + '(Familienheimfahrt) sind h&ouml;chstens f&uuml;r <em>eine</em> Fahrt pro Woche abziehbar. '
+        + 'Hinweis: Die Vorschrift betrifft den Umzug <em>nicht</em> &ndash; das Wort &bdquo;Umzug&ldquo; kommt in '
+        + '&sect;&nbsp;9 EStG im Gesetzeswortlaut nicht vor. Eine Umzugskostenpauschale wird hier deshalb nicht berechnet '
+        + '(f&uuml;r sie gilt die LStR&nbsp;R&nbsp;9.9, eine Verwaltungsanweisung, nicht das Gesetz). '
+        + 'Fahrtkosten werden hier nicht bewertet, weil daf&uuml;r kein Satz im &sect;&nbsp;9-Wortlaut steht. Keine Steuerberatung.</p>';
   el("out-21").innerHTML = html;
 }
 function render35a() {
