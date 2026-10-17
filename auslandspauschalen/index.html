@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auslandspauschalen 2026 – Verpflegungspauschale je Land (BMF-Tabelle, kostenlos)</title>
+<meta name="description" content="Verpflegungspauschalen für 166 Länder und 48 Städte: 24-Stunden-Satz, An-/Abreisetag und Übernachtungspauschale nach § 9 Abs. 4a EStG (BMF-Schreiben BMF-Schreiben vom 05.12.2025, GZ IV C 5 - S 2353/00094/007/012 (§ 9 Abs. 4a Satz 5 ff. EStG);). Kostenlos, offline nutzbar, ohne Tracking.">
+<link rel="canonical" href="https://ycyxyd.github.io/steuer-rechner/auslandspauschalen/">
+<meta property="og:title" content="Auslandspauschalen 2026 – Tabelle je Land">
+<meta property="og:description" content="166 Länder, amtliche Sätze nach § 9 Abs. 4a EStG. Suche, Rechner und Kürzung bei gestellten Mahlzeiten – kostenlos, ohne Tracking.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --primary:#cc785c; --primary-active:#a9583e; --primary-disabled:#e6dfd8;
+    --ink:#141413; --body:#3d3d3a; --muted:#6c6a64; --muted-soft:#8e8b82;
+    --hairline:#e6dfd8; --canvas:#faf9f5; --surface-soft:#f5f0e8; --surface-card:#efe9de;
+    --success:#5db872; --warning:#d4a017; --error:#c64545;
+    --r-md:8px; --r-lg:12px; --r-pill:9999px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--canvas);color:var(--body);
+       font:16px/1.55 "StyreneB","Inter",-apple-system,"Segoe UI",Roboto,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:48px 24px 72px}
+  h1{font-family:"Copernicus","Tiempos Headline",Georgia,serif;font-weight:400;
+     font-size:38px;line-height:1.1;letter-spacing:-1px;color:var(--ink);margin:0 0 12px}
+  h2{font-family:"Copernicus","Tiempos Headline",Georgia,serif;font-weight:400;
+     font-size:25px;line-height:1.2;color:var(--ink);margin:40px 0 8px}
+  h3{font-size:17px;font-weight:600;color:var(--ink);margin:18px 0 8px}
+  p{margin:8px 0}
+  a{color:var(--primary-active)}
+  .top{display:inline-block;font-size:12.5px;font-weight:500;letter-spacing:1.5px;
+       text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .lead{font-size:17px;color:var(--muted);margin:0 0 12px}
+  .disc{background:var(--surface-soft);border:1px solid var(--hairline);border-radius:var(--r-lg);
+        padding:14px 18px;font-size:14.5px;color:#252523;margin:20px 0}
+  .card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:var(--r-lg);
+        padding:20px 22px;margin:16px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px}
+  input,select{width:100%;padding:10px 12px;border:1px solid var(--hairline);border-radius:var(--r-md);
+        background:#fff;color:var(--ink);font:15px/1.3 inherit}
+  input:focus,select:focus{outline:2px solid var(--primary);outline-offset:1px}
+  .btn{display:inline-block;background:var(--primary);color:#fff;border:0;border-radius:var(--r-md);
+       padding:12px 20px;font:500 15px/1 inherit;cursor:pointer;margin-top:8px}
+  .btn:hover{background:var(--primary-active)}
+  table{width:100%;border-collapse:collapse;margin:0;font-size:15px;background:#fff}
+  th,td{border-bottom:1px solid var(--hairline);padding:9px 10px;text-align:left;vertical-align:top}
+  th{background:var(--surface-soft);font-weight:600;font-size:13.5px;position:sticky;top:0;z-index:1}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.sub td:first-child{padding-left:30px;color:var(--muted);font-size:14px}
+  .scroll{max-height:70vh;overflow:auto;border:1px solid var(--hairline);border-radius:var(--r-lg);margin:14px 0}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--hairline)}
+  .row:last-child{border-bottom:0}
+  .row .k{color:var(--muted)}
+  .row .v{font-weight:600;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+  .total{border-top:2px solid var(--ink);margin-top:4px;padding-top:10px}
+  .hint{font-size:13.5px;color:var(--muted)}
+  .cta{background:var(--surface-soft);border:1px solid var(--hairline);border-left:4px solid var(--primary);
+       border-radius:var(--r-lg);padding:18px 20px;margin:28px 0}
+  .cta a.btn{color:#fff;text-decoration:none}
+  .foot{margin-top:48px;padding-top:18px;border-top:1px solid var(--hairline);
+        font-size:13.5px;color:var(--muted)}
+  .out{margin-top:16px}
+  mark{background:#f6e7d8;color:inherit;padding:0 2px}
+  @media print{.scroll{max-height:none;overflow:visible}.btn{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="top">Arbeitshilfe &middot; Stand BMF-Schreiben vom 05.12.2025, GZ IV C 5 - S 2353/00094/007/012 (§ 9 Abs. 4a Satz 5 ff. EStG);</span>
+  <h1>Auslandspauschalen 2026</h1>
+  <p class="lead">Verpflegungspauschalen für 166 Länder und 48 Städte – amtliche Sätze nach
+     &sect;&nbsp;9 Abs.&nbsp;4a EStG, durchsuchbar, mit Rechner für die Reise und Kürzung bei
+     gestellten Mahlzeiten. Kostenlos, offline nutzbar, ohne Konto, ohne Tracking.</p>
+
+  <div class="disc">
+    <strong>Datenschutz (DSGVO):</strong> Diese Seite rechnet ausschließlich in deinem Browser.
+    Es werden <mark>keine Eingaben an einen Server übertragen</mark>, keine Cookies gesetzt,
+    kein Analytics, kein Login. Du kannst die Datei speichern und ohne Internet benutzen.<br>
+    <strong>Keine Steuer- oder Rechtsberatung.</strong> Maßgeblich ist der amtliche Text
+    (<a href="https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Steuerarten/Lohnsteuer/2025-12-05-steuerliche-behandlung-reisekosten-2026.html" rel="noopener">BMF-Schreiben BMF-Schreiben vom 05.12.2025, GZ IV C 5 - S 2353/00094/007/012 (§ 9 Abs. 4a Satz 5 ff. EStG);</a> &middot;
+    <a href="https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Steuerarten/Lohnsteuer/2025-12-05-steuerliche-behandlung-reisekosten-2026.pdf?__blob=publicationFile&v=4" rel="noopener">PDF</a>).
+  </div>
+
+  <h2 id="tabelle">1. Tabelle: alle Länder</h2>
+  <div class="grid">
+    <div>
+      <label for="q">Land oder Stadt suchen</label>
+      <input id="q" type="search" placeholder="z. B. Frankreich, Paris, USA" autocomplete="off">
+    </div>
+    <div>
+      <label for="ueb">Übernachtungsspalte</label>
+      <select id="ueb">
+        <option value="mit">zeigen</option>
+        <option value="ohne">ausblenden (nur Verpflegung)</option>
+      </select>
+    </div>
+  </div>
+  <p class="hint" id="hint">214 Zeilen in 166 Ländern</p>
+
+  <div class="scroll">
+    <table id="tab">
+      <thead>
+        <tr><th>Land / Ort</th><th class="num">24 Std.<br>(voll)</th><th class="num">&gt;&nbsp;8 Std. bzw.<br>An-/Abreise</th><th class="num">Übernachtung</th></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <h2 id="rechner">2. Rechner: Pauschale für deine Reise</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="land">Reiseziel</label>
+        <select id="land"></select>
+      </div>
+      <div>
+        <label for="voll">Volle Kalendertage (24 Std. abwesend)</label>
+        <input id="voll" type="number" min="0" max="365" step="1" value="3">
+      </div>
+      <div>
+        <label for="anab">An- und Abreisetag</label>
+        <select id="anab">
+          <option value="ja">mitzählen (je 1 Tag)</option>
+          <option value="nein">nicht mitzählen</option>
+        </select>
+      </div>
+      <div>
+        <label for="fr">Gestellte Mahlzeiten</label>
+        <select id="fr">
+          <option value="0">keine</option>
+          <option value="1">Frühstück (20 %)</option>
+          <option value="2">Frühstück + 1 Hauptmahlzeit (20 % + 40 %)</option>
+          <option value="3">Frühstück + 2 Hauptmahlzeiten (20 % + 80 %)</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" id="btn-1">Pauschale berechnen</button>
+    <div class="out" id="out-1" aria-live="polite"></div>
+  </div>
+
+  <h2 id="regeln">3. Was die drei Spalten bedeuten</h2>
+  <div class="card">
+    <h3>Inland: 28 &euro; / 14 &euro;</h3>
+    <p>Im Inland beträgt die Verpflegungspauschale <strong>28 &euro;</strong> für jeden Kalendertag mit
+       24 Stunden Abwesenheit und <strong>14 &euro;</strong> für An- und Abreisetag sowie für Tage mit
+       mehr als 8 Stunden Abwesenheit ohne Übernachtung (&sect;&nbsp;9 Abs.&nbsp;4a Satz&nbsp;3 EStG).</p>
+    <h3>Ausland: diese Tabelle ersetzt 28 &euro; / 14 &euro;</h3>
+    <p>Bei einer Tätigkeit im Ausland treten an die Stelle dieser Beträge länderweise unterschiedliche
+       Pauschbeträge: <strong>120 %</strong> des Auslandstagegelds nach dem Bundesreisekostengesetz für
+       den 24-Stunden-Satz und <strong>80 %</strong> für An-/Abreise bzw. mehr als 8 Stunden, jeweils
+       <strong>aufgerundet auf volle Euro</strong>, festgesetzt vom BMF im Einvernehmen mit den obersten
+       Finanzbehörden der Länder (&sect;&nbsp;9 Abs.&nbsp;4a Satz&nbsp;5 EStG).</p>
+    <p class="hint">Genau diese Rechenregel prüft diese Seite gegen die amtliche Tabelle: für jede der
+       214 Zeilen muss ein ganzzahliger BRKG-Satz existieren, aus dem sich beide Werte per
+       Aufrundung ergeben. Weicht eine Zeile ab, wird die Seite nicht gebaut.</p>
+    <h3>Übernachtung</h3>
+    <p>Die dritte Spalte ist die <strong>Übernachtungspauschale</strong> für Auslandsübernachtungen
+       (pauschalierbar; höhere tatsächliche Kosten sind mit Belegen ansetzbar).</p>
+    <h3>Kürzung bei gestellten Mahlzeiten</h3>
+    <p>Stellt der Arbeitgeber – oder ein Dritter auf seine Veranlassung – eine Mahlzeit, ist die
+       Pauschale zu kürzen: <strong>Frühstück 20 %</strong>,
+       <strong>Mittag- und Abendessen je 40 %</strong>, jeweils bezogen auf den maßgebenden
+       <em>vollen</em> Tagessatz; die Kürzung darf die ermittelte Pauschale nicht übersteigen
+       (&sect;&nbsp;9 Abs.&nbsp;4a Satz&nbsp;8 EStG). Hat der Arbeitnehmer für die Mahlzeit ein Entgelt
+       gezahlt, mindert dieser Betrag den Kürzungsbetrag (Satz&nbsp;10).</p>
+    <h3>Drei-Monats-Grenze</h3>
+    <p>Der Abzug ist bei einer längerfristigen beruflichen Tätigkeit an derselben Tätigkeitsstätte auf
+       die <strong>ersten drei Monate</strong> beschränkt; eine Unterbrechung von mindestens vier Wochen
+       führt zu einem Neubeginn (&sect;&nbsp;9 Abs.&nbsp;4a Sätze&nbsp;6 und&nbsp;7 EStG).</p>
+    <h3>Maßgeblicher Ort</h3>
+    <p>Der Pauschbetrag richtet sich nach dem Ort, den der Arbeitnehmer vor 24&nbsp;Uhr Ortszeit zuletzt
+       erreicht – oder, wenn dieser Ort im Inland liegt, nach dem letzten Tätigkeitsort im Ausland
+       (&sect;&nbsp;9 Abs.&nbsp;4a Satz&nbsp;5 EStG).</p>
+  </div>
+
+  <div class="cta">
+    <h3>Abrechnung lieber automatisch?</h3>
+    <p>Die <strong>Reisekostenabrechnung 2026 (Excel)</strong> enthält dieselben Länder als Auswahlliste,
+       rechnet Kürzungen und Summen und ist um die inländischen Sätze ergänzt.</p>
+    <a class="btn" href="https://dongyang7.gumroad.com/l/equmas" rel="sponsored nofollow">Reisekostenabrechnung 2026 ansehen (&euro;&nbsp;14)</a>
+  </div>
+
+  <p class="hint">&rarr; Alle kostenlosen Rechner (Fristen, Kleinunternehmer, EÜR, UStVA, AfA &hellip;):
+     <a href="https://ycyxyd.github.io/steuer-rechner/">Steuer-Rechner 2026</a></p>
+
+  <div class="foot">
+    Datenquelle: BMF-Schreiben BMF-Schreiben vom 05.12.2025, GZ IV C 5 - S 2353/00094/007/012 (§ 9 Abs. 4a Satz 5 ff. EStG);, GZ IV C 5 - S 2353/00094/007/012
+    (<a href="https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Steuerarten/Lohnsteuer/2025-12-05-steuerliche-behandlung-reisekosten-2026.html" rel="noopener">HTML</a> &middot; <a href="https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Steuerarten/Lohnsteuer/2025-12-05-steuerliche-behandlung-reisekosten-2026.pdf?__blob=publicationFile&v=4" rel="noopener">PDF</a>).
+    Die Sätze gelten für Reisen ab 1.&nbsp;Januar 2026. Diese Seite ist eine unverbindliche Arbeitshilfe
+    und ersetzt keine Steuerberatung; für verbindliche Auskünfte ist der amtliche Text maßgeblich.
+  </div>
+</div>
+<script id="engine">
+/* Engine: offline & deterministisch. Getestet von tool/test_auslandspauschalen.js */
+var DATA = {"Albanien":{"d":[33,22,116],"s":{}},"Algerien":{"d":[47,32,120],"s":{}},"Andorra":{"d":[45,30,135],"s":{}},"Angola":{"d":[40,27,368],"s":{}},"Argentinien":{"d":[42,28,119],"s":{}},"Armenien":{"d":[29,20,107],"s":{}},"Aserbaidschan":{"d":[44,29,88],"s":{}},"Australien":{"d":[57,38,173],"s":{"Canberra":[74,49,186],"Sydney":[57,38,173]}},"Bahrain":{"d":[48,32,153],"s":{}},"Bangladesch":{"d":[46,31,189],"s":{}},"Barbados":{"d":[54,36,206],"s":{}},"Belgien":{"d":[59,40,141],"s":{}},"Benin":{"d":[40,27,168],"s":{}},"Bhutan":{"d":[27,18,176],"s":{}},"Bolivien":{"d":[46,31,108],"s":{}},"Bosnien und Herzegowina":{"d":[32,21,109],"s":{}},"Botsuana":{"d":[40,27,105],"s":{}},"Brasilien":{"d":[46,31,88],"s":{"Brasilia":[51,34,88],"Rio de Janeiro":[69,46,140],"Sao Paulo":[46,31,151]}},"Brunei":{"d":[45,30,110],"s":{}},"Bulgarien":{"d":[38,25,109],"s":{}},"Burkina Faso":{"d":[39,26,230],"s":{}},"Burundi":{"d":[58,39,102],"s":{}},"Chile":{"d":[44,29,154],"s":{}},"China":{"d":[48,32,142],"s":{"Hongkong":[83,56,209],"Peking":[57,38,184],"Shanghai":[48,32,142]}},"Costa Rica":{"d":[60,40,127],"s":{}},"Côte d’Ivoire":{"d":[60,40,171],"s":{}},"Dominikanische Republik":{"d":[50,33,167],"s":{}},"Dschibuti":{"d":[77,52,255],"s":{}},"Dänemark":{"d":[75,50,183],"s":{}},"Ecuador":{"d":[27,18,103],"s":{}},"El Salvador":{"d":[65,44,161],"s":{}},"Eritrea":{"d":[46,31,78],"s":{}},"Estland":{"d":[39,26,125],"s":{}},"Fidschi":{"d":[32,21,183],"s":{}},"Finnland":{"d":[54,36,171],"s":{}},"Frankreich":{"d":[53,36,105],"s":{"Paris sowie die Departments 77, 78, 91 bis 95":[58,39,159]}},"Gabun":{"d":[64,43,263],"s":{}},"Gambia":{"d":[40,27,161],"s":{}},"Georgien":{"d":[45,30,87],"s":{}},"Ghana":{"d":[46,31,203],"s":{}},"Griechenland":{"d":[36,24,150],"s":{"Athen":[40,27,139]}},"Guatemala":{"d":[46,31,124],"s":{}},"Guinea":{"d":[59,40,140],"s":{}},"Guinea-Bissau":{"d":[32,21,113],"s":{}},"Honduras":{"d":[57,38,198],"s":{}},"Indien":{"d":[22,15,80],"s":{"Bangalore":[42,28,155],"Chennai":[22,15,80],"Kalkutta":[32,21,167],"Mumbai":[53,36,218],"Neu Delhi":[46,31,211]}},"Indonesien":{"d":[45,30,179],"s":{}},"Iran":{"d":[33,22,196],"s":{}},"Irland":{"d":[64,43,164],"s":{}},"Island":{"d":[62,41,187],"s":{}},"Israel":{"d":[59,40,268],"s":{}},"Italien":{"d":[42,28,150],"s":{"Mailand":[42,28,191],"Rom":[48,32,150]}},"Jamaika":{"d":[39,26,171],"s":{}},"Japan":{"d":[33,22,141],"s":{"Osaka":[33,22,141],"Tokio":[50,33,285]}},"Jordanien":{"d":[57,38,134],"s":{}},"Kambodscha":{"d":[42,28,108],"s":{}},"Kamerun":{"d":[56,37,275],"s":{}},"Kanada":{"d":[54,36,214],"s":{"Ottawa":[62,41,214],"Toronto":[54,36,392],"Vancouver":[63,42,304]}},"Kap Verde":{"d":[38,25,90],"s":{}},"Kasachstan":{"d":[33,22,108],"s":{}},"Katar":{"d":[81,54,128],"s":{}},"Kenia":{"d":[48,32,217],"s":{}},"Kirgisistan":{"d":[35,24,80],"s":{}},"Kolumbien":{"d":[34,23,123],"s":{}},"Kongo, Demokratische Republik":{"d":[65,44,337],"s":{}},"Kongo, Republik":{"d":[53,36,215],"s":{}},"Korea, Republik":{"d":[39,26,130],"s":{}},"Kosovo":{"d":[24,16,71],"s":{}},"Kroatien":{"d":[46,31,191],"s":{}},"Kuba":{"d":[51,34,170],"s":{}},"Kuwait":{"d":[63,42,224],"s":{}},"Laos":{"d":[35,24,71],"s":{}},"Lesotho":{"d":[28,19,104],"s":{}},"Lettland":{"d":[46,31,119],"s":{}},"Libanon":{"d":[69,46,146],"s":{}},"Liberia":{"d":[65,44,173],"s":{}},"Liechtenstein":{"d":[57,38,234],"s":{}},"Litauen":{"d":[48,32,124],"s":{}},"Luxemburg":{"d":[63,42,139],"s":{}},"Madagaskar":{"d":[33,22,116],"s":{}},"Malawi":{"d":[41,28,109],"s":{}},"Malaysia":{"d":[36,24,86],"s":{}},"Malediven":{"d":[70,47,200],"s":{}},"Mali":{"d":[42,28,141],"s":{}},"Malta":{"d":[59,40,191],"s":{}},"Marokko":{"d":[41,28,87],"s":{}},"Marshall Inseln":{"d":[45,30,112],"s":{}},"Mauretanien":{"d":[35,24,86],"s":{}},"Mauritius":{"d":[44,29,172],"s":{}},"Mexiko":{"d":[40,27,337],"s":{}},"Moldau, Republik":{"d":[26,17,73],"s":{}},"Monaco":{"d":[52,35,187],"s":{}},"Mongolei":{"d":[23,16,92],"s":{}},"Montenegro":{"d":[32,21,85],"s":{}},"Mosambik":{"d":[51,34,208],"s":{}},"Myanmar":{"d":[23,16,103],"s":{}},"Namibia":{"d":[28,19,146],"s":{}},"Nepal":{"d":[33,22,125],"s":{}},"Neuseeland":{"d":[58,39,148],"s":{}},"Nicaragua":{"d":[46,31,105],"s":{}},"Niederlande":{"d":[58,39,167],"s":{}},"Niger":{"d":[42,28,131],"s":{}},"Nigeria":{"d":[52,35,202],"s":{}},"Nordmazedonien":{"d":[27,18,89],"s":{}},"Norwegen":{"d":[75,50,139],"s":{}},"Oman":{"d":[64,43,141],"s":{}},"Pakistan":{"d":[41,28,199],"s":{}},"Palau":{"d":[51,34,193],"s":{}},"Panama":{"d":[41,28,82],"s":{}},"Papua-Neuguinea":{"d":[59,40,159],"s":{}},"Paraguay":{"d":[39,26,124],"s":{}},"Peru":{"d":[52,35,128],"s":{}},"Philippinen":{"d":[41,28,140],"s":{}},"Polen":{"d":[34,23,124],"s":{"Breslau":[34,23,124],"Warschau":[40,27,143]}},"Portugal":{"d":[32,21,111],"s":{}},"Ruanda":{"d":[44,29,117],"s":{}},"Rumänien":{"d":[38,25,103],"s":{}},"Russische Föderation":{"d":[28,19,133],"s":{"Moskau":[30,20,235],"St. Petersburg":[28,19,133]}},"Sambia":{"d":[38,25,105],"s":{}},"Samoa":{"d":[39,26,105],"s":{}},"San Marino":{"d":[34,23,79],"s":{}},"Saudi-Arabien":{"d":[56,37,181],"s":{"Djidda":[57,38,181],"Riad":[56,37,186]}},"Schweden":{"d":[66,44,140],"s":{}},"Schweiz":{"d":[70,47,195],"s":{"Bern":[82,55,195],"Genf":[70,47,197]}},"Senegal":{"d":[48,32,160],"s":{}},"Serbien":{"d":[27,18,97],"s":{}},"Sierra Leone":{"d":[57,38,145],"s":{}},"Simbabwe":{"d":[63,42,198],"s":{}},"Singapur":{"d":[71,48,277],"s":{}},"Slowakische Republik":{"d":[33,22,121],"s":{}},"Slowenien":{"d":[38,25,126],"s":{}},"Spanien":{"d":[34,23,103],"s":{"Barcelona":[34,23,144],"Kanarische Inseln":[36,24,103],"Madrid":[42,28,131],"Palma de Mallorca":[44,29,142]}},"Sri Lanka":{"d":[36,24,112],"s":{}},"São Tomé – Príncipe":{"d":[36,24,147],"s":{}},"Südafrika":{"d":[29,20,109],"s":{"Johannesburg":[36,24,129],"Kapstadt":[33,22,130]}},"Südsudan":{"d":[51,34,159],"s":{}},"Tadschikistan":{"d":[27,18,85],"s":{}},"Taiwan":{"d":[51,34,174],"s":{}},"Tansania":{"d":[44,29,97],"s":{}},"Thailand":{"d":[36,24,114],"s":{}},"Togo":{"d":[36,24,144],"s":{}},"Tonga":{"d":[29,20,102],"s":{}},"Trinidad und Tobago":{"d":[66,44,203],"s":{}},"Tschad":{"d":[42,28,155],"s":{}},"Tschechische Republik":{"d":[32,21,77],"s":{}},"Tunesien":{"d":[40,27,144],"s":{}},"Turkmenistan":{"d":[28,19,135],"s":{}},"Türkei":{"d":[24,16,107],"s":{"Ankara":[32,21,110],"Izmir":[44,29,120]}},"Uganda":{"d":[45,30,207],"s":{}},"Ukraine":{"d":[33,22,180],"s":{}},"Ungarn":{"d":[32,21,85],"s":{}},"Uruguay":{"d":[40,27,113],"s":{}},"Usbekistan":{"d":[32,21,133],"s":{}},"Vatikanstaat":{"d":[48,32,150],"s":{}},"Venezuela":{"d":[51,34,178],"s":{}},"Vereinigte Arabische Emirate":{"d":[81,54,169],"s":{}},"Vereinigte Staaten von Amerika (USA)":{"d":[59,40,182],"s":{"Atlanta":[77,52,182],"Boston":[63,42,333],"Chicago":[65,44,233],"Houston":[62,41,204],"Los Angeles":[64,43,262],"Miami":[65,44,256],"New York City":[66,44,308],"San Francisco":[59,40,327],"Washington, D. C.":[66,44,203]}},"Vereinigtes Königreich von Großbritannien und Nordirland":{"d":[52,35,99],"s":{"London":[66,44,163]}},"Vietnam":{"d":[36,24,111],"s":{}},"Weißrussland":{"d":[21,14,148],"s":{}},"Zentralafrikanische Republik":{"d":[53,36,210],"s":{}},"Zypern":{"d":[42,28,125],"s":{}},"Ägypten":{"d":[50,33,112],"s":{}},"Äquatorialguinea":{"d":[42,28,166],"s":{}},"Äthiopien":{"d":[44,29,159],"s":{}},"Österreich":{"d":[50,33,117],"s":{}}};
+
+function lc(s) {
+  return String(s == null ? "" : s).toLowerCase()
+    .replace(/ä/g, "a").replace(/ö/g, "o").replace(/ü/g, "u").replace(/ß/g, "ss");
+}
+
+/* Suche: Land-Treffer liefern alle Unterzeilen mit; sonst Treffer in der Unterzeile. */
+function suche(q) {
+  var s = lc(q).trim(), out = [];
+  Object.keys(DATA).sort(function (a, b) { return a.localeCompare(b, "de"); }).forEach(function (land) {
+    var e = DATA[land], hit = !s || lc(land).indexOf(s) >= 0;
+    if (hit) {
+      if (e.d) out.push({ land: land, sub: "", werte: e.d });
+      Object.keys(e.s).forEach(function (sub) { out.push({ land: land, sub: sub, werte: e.s[sub] }); });
+    } else {
+      Object.keys(e.s).forEach(function (sub) {
+        if (lc(sub).indexOf(s) >= 0) out.push({ land: land, sub: sub, werte: e.s[sub] });
+      });
+    }
+  });
+  return out;
+}
+
+/* § 9 Abs. 4a Satz 8 EStG: Kuerzung in % des VOLLEN Tagessatzes, begrenzt auf den Tagessatz. */
+function kuerzungSatz(p24, fruehstueck, mittag, abend) {
+  // § 9 Abs. 4a Satz 8 EStG: 20 % Fruehstueck, je 40 % Mittag/Abend, bezogen auf den VOLLEN Tagessatz.
+  // Keine Aufrundung auf volle Euro (die Norm nennt nur Prozentsaetze) -> Cent-genau, nur Float-Rauschen weg.
+  var p = (fruehstueck ? 0.2 : 0) * p24 + ((mittag ? 1 : 0) + (abend ? 1 : 0)) * 0.4 * p24;
+  p = Math.round(p * 100) / 100;
+  return Math.min(p, p24);
+}
+
+/* Reise: volle Tage x 24h-Satz, An-/Abreisetag je mit dem 8h-Satz.
+   Kuerzung wird je Tag mit dem Tagessatz verrechnet (nie negativ). */
+function reise(land, volleTage, anAb, fruehstueck, mittag, abend) {
+  var e = DATA[land];
+  if (!e) { throw new Error("unbekanntes Land: " + land); }
+  var w = e.d || e.s[Object.keys(e.s)[0]];
+  var p24 = w[0], p8 = w[1], ue = w[2];
+  var tage = [], i, n = Math.max(0, Math.floor(volleTage));
+  for (i = 0; i < n; i++) { tage.push(p24); }
+  if (anAb) { tage.push(p8); tage.push(p8); }
+  var k = kuerzungSatz(p24, fruehstueck, mittag, abend);
+  var brutto = 0, abzug = 0;
+  for (i = 0; i < tage.length; i++) { brutto += tage[i]; abzug += Math.min(k, tage[i]); }
+  return { land: land, tage: tage.length, p24: p24, p8: p8, ueber: ue,
+           brutto: brutto, kuerzung: abzug, netto: brutto - abzug };
+}
+
+function eur(n) {
+  return (Math.round(n * 100) / 100).toFixed(2).replace(".", ",") + " \u20ac";
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { DATA: DATA, suche: suche, reise: reise, kuerzungSatz: kuerzungSatz, eur: eur };
+}
+</script>
+<script>
+(function () {
+  var q = document.getElementById("q");
+  var ueb = document.getElementById("ueb");
+  var hint = document.getElementById("hint");
+  var tbody = document.getElementById("tbody");
+  var landSel = document.getElementById("land");
+
+  function fmt(n) { return (Math.round(n * 100) / 100).toFixed(2).replace(".", ","); }
+
+  function malen(list) {
+    var html = "";
+    list.forEach(function (r) {
+      html += "<tr" + (r.sub ? ' class="sub"' : "") + "><td>" +
+        (r.sub ? r.land + " \u2013 " + r.sub : r.land) + '</td><td class="num">' + fmt(r.werte[0]) +
+        '</td><td class="num">' + fmt(r.werte[1]) + '</td><td class="num">' + fmt(r.werte[2]) + "</td></tr>";
+    });
+    tbody.innerHTML = html || '<tr><td colspan="4">Kein Treffer \u2013 andere Schreibweise probieren (z. B. \u201ETschechien\u201C).</td></tr>';
+  }
+  function spalte() {
+    var show = ueb.value !== "ohne";
+    var els = document.querySelectorAll("#tab tr > *:nth-child(4)");
+    for (var i = 0; i < els.length; i++) { els[i].style.display = show ? "" : "none"; }
+  }
+  function refresh() {
+    var list = suche(q.value);
+    malen(list);
+    spalte();
+    hint.textContent = list.length + " von 214 Zeilen";
+  }
+
+  Object.keys(DATA).sort(function (a, b) { return a.localeCompare(b, "de"); }).forEach(function (l) {
+    var o = document.createElement("option");
+    o.value = l;
+    o.textContent = l;
+    landSel.appendChild(o);
+  });
+  landSel.value = DATA["Frankreich"] ? "Frankreich" : Object.keys(DATA)[0];
+  q.addEventListener("input", refresh);
+  ueb.addEventListener("change", refresh);
+  refresh();
+
+  document.getElementById("btn-1").addEventListener("click", function () {
+    var land = landSel.value;
+    var voll = parseInt(document.getElementById("voll").value || "0", 10);
+    var map = { "0": [false, false, false], "1": [true, false, false],
+                "2": [true, true, false], "3": [true, true, true] };
+    var m = map[document.getElementById("fr").value] || [false, false, false];
+    var r = reise(land, voll, document.getElementById("anab").value === "ja", m[0], m[1], m[2]);
+    var html = "" +
+      '<div class="row"><span class="k">Tagessatz 24 Std.</span><span class="v">' + fmt(r.p24) + " \u20ac</span></div>" +
+      '<div class="row"><span class="k">Satz je An-/Abreisetag</span><span class="v">' + fmt(r.p8) + " \u20ac</span></div>" +
+      '<div class="row"><span class="k">Verpflegung brutto (' + r.tage + ' Tage)</span><span class="v">' + fmt(r.brutto) + " \u20ac</span></div>" +
+      (r.kuerzung ? '<div class="row"><span class="k">K\u00fcrzung f\u00fcr gestellte Mahlzeiten</span><span class="v">\u2212 ' + fmt(r.kuerzung) + " \u20ac</span></div>" : "") +
+      '<div class="row total"><span class="k"><strong>Verpflegungspauschale</strong></span><span class="v">' + fmt(r.netto) + " \u20ac</span></div>" +
+      '<div class="row"><span class="k">\u00dcbernachtungspauschale je Nacht</span><span class="v">' + fmt(r.ueber) + " \u20ac</span></div>" +
+      '<p class="hint">Ohne Gew\u00e4hr \u2013 keine Steuerberatung. K\u00fcrzung nach &sect;&nbsp;9 Abs.&nbsp;4a Satz&nbsp;8 EStG ' +
+      "auf den vollen Tagessatz bezogen und je Tag auf dessen H\u00f6he begrenzt.</p>";
+    document.getElementById("out-1").innerHTML = html;
+  });
+})();
+</script>
+</body>
+</html>
