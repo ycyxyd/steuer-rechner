@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CO2-Kostenaufteilung 2026 - Mieteranteil berechnen (CO2KostAufG)</title>
+<meta name="description" content="CO2-Kosten zwischen Mieter und Vermieter aufteilen: spezifischen CO2-Aussto&szlig; eingeben, Mieteranteil nach der zehnstufigen Anlage zu &sect;&sect; 5-7 CO2KostAufG ablesen. Amtlicher Zertifikatepreis 2026 60,00 EUR/t. Kostenlos, offline, ohne Tracking.">
+<link rel="canonical" href="https://ycyxyd.github.io/steuer-rechner/co2/">
+<meta property="og:title" content="CO2-Kostenaufteilung 2026 - Rechner und amtliche Stufentabelle">
+<meta property="og:description" content="Zehnstufige Aufteilung nach CO2KostAufG: Mieteranteil 100 % bis 5 %. Rechner, amtlicher Wortlaut der Anlage, Zertifikatepreis 2026. Kostenlos, ohne Tracking.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --primary:#cc785c; --primary-active:#a9583e; --primary-disabled:#e6dfd8;
+    --ink:#141413; --body:#3d3d3a; --muted:#6c6a64; --muted-soft:#8e8b82;
+    --hairline:#e6dfd8; --canvas:#faf9f5; --surface-soft:#f5f0e8; --surface-card:#efe9de;
+    --success:#5db872; --warning:#d4a017; --error:#c64545;
+    --r-md:8px; --r-lg:12px; --r-pill:9999px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--canvas);color:var(--body);
+       font:16px/1.55 "StyreneB","Inter",-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:48px 24px 72px}
+  h1{font-family:"Copernicus","Tiempos Headline",Georgia,serif;font-weight:400;
+     font-size:38px;line-height:1.1;letter-spacing:-1px;color:var(--ink);margin:0 0 12px}
+  h2{font-family:"Copernicus","Tiempos Headline",Georgia,serif;font-weight:400;
+     font-size:25px;line-height:1.2;color:var(--ink);margin:40px 0 8px}
+  h3{font-size:17px;font-weight:600;color:var(--ink);margin:18px 0 8px}
+  p{margin:8px 0}
+  a{color:var(--primary-active)}
+  .top{display:inline-block;font-size:12.5px;font-weight:500;letter-spacing:1.5px;
+       text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .lead{font-size:17px;color:var(--muted);margin:0 0 12px}
+  .disc{background:var(--surface-soft);border:1px solid var(--hairline);border-radius:var(--r-lg);
+        padding:14px 18px;font-size:14.5px;color:#252523;margin:20px 0}
+  .card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:var(--r-lg);
+        padding:20px 22px;margin:16px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px}
+  input{width:100%;padding:10px 12px;border:1px solid var(--hairline);border-radius:var(--r-md);
+        background:#fff;color:var(--ink);font:15px/1.3 inherit}
+  input:focus{outline:2px solid var(--primary);outline-offset:1px}
+  .btn{display:inline-block;background:var(--primary);color:#fff;border:0;border-radius:var(--r-md);
+       padding:12px 20px;font:500 15px/1 inherit;cursor:pointer;margin-top:8px}
+  .btn:hover{background:var(--primary-active)}
+  table{width:100%;border-collapse:collapse;margin:0;font-size:15px;background:#fff}
+  th,td{border-bottom:1px solid var(--hairline);padding:9px 10px;text-align:left;vertical-align:top}
+  th{background:var(--surface-soft);font-weight:600;font-size:13.5px}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.hit td{background:#f6e7d8}
+  .scroll{overflow:auto;border:1px solid var(--hairline);border-radius:var(--r-lg);margin:14px 0}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--hairline)}
+  .row:last-child{border-bottom:0}
+  .row .k{color:var(--muted)}
+  .row .v{font-weight:600;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+  .total{border-top:2px solid var(--ink);margin-top:4px;padding-top:10px}
+  .hint{font-size:13.5px;color:var(--muted)}
+  .cta{background:var(--surface-soft);border:1px solid var(--hairline);border-left:4px solid var(--primary);
+       border-radius:var(--r-lg);padding:18px 20px;margin:28px 0}
+  .cta a.btn{color:#fff;text-decoration:none}
+  .foot{margin-top:48px;padding-top:18px;border-top:1px solid var(--hairline);
+        font-size:13.5px;color:var(--muted)}
+  .out{margin-top:16px}
+  mark{background:#f6e7d8;color:inherit;padding:0 2px}
+  @media print{.scroll{overflow:visible}.btn{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="top">Arbeitshilfe &middot; Rechenjahr 2026</span>
+  <h1>CO2-Kostenaufteilung 2026</h1>
+  <p class="lead">Wie viel der Kohlendioxidkosten tr&auml;gt der Mieter, wie viel der Vermieter?
+     Spezifischen CO&#8322;-Aussto&szlig; eingeben - die zehnstufige Anlage zu &sect;&sect;&nbsp;5&ndash;7
+     CO2KostAufG entscheidet. Amtlicher Zertifikatepreis 2026:
+     <strong>60,00&nbsp;&euro;/t</strong>. Kostenlos, offline nutzbar, ohne Konto, ohne Tracking.</p>
+
+  <div class="disc">
+    <strong>Datenschutz (DSGVO):</strong> Diese Seite rechnet ausschlie&szlig;lich in deinem Browser.
+    Es werden <mark>keine Eingaben an einen Server &uuml;bertragen</mark>, keine Cookies gesetzt,
+    kein Analytics, kein Login. Du kannst die Datei speichern und ohne Internet benutzen.<br>
+    <strong>Keine Steuer- oder Rechtsberatung.</strong> Ma&szlig;geblich sind die Gesetzestexte
+    (<a href="https://www.gesetze-im-internet.de/co2kostaufg/anlage.html" rel="noopener">&sect;&sect;&nbsp;5&ndash;7 CO2KostAufG mit Anlage</a> &middot;
+    <a href="https://www.gesetze-im-internet.de/co2kostaufg/__4.html" rel="noopener">&sect;&nbsp;4 CO2KostAufG</a>) und die Bekanntmachung des
+    Umweltbundesamts.
+  </div>
+
+  <h2 id="rechner">1. Rechner: Mieteranteil und Vermieteranteil</h2>
+  <div class="card">
+    <div class="grid">
+      <div>
+        <label for="kg">Spezifischer CO&#8322;-Aussto&szlig; (kg CO&#8322;/m&sup2; Wohnfl&auml;che und Jahr)</label>
+        <input id="kg" type="number" min="0" max="500" step="0.01" value="22">
+      </div>
+      <div>
+        <label for="kosten">CO&#8322;-Kosten des Abrechnungszeitraums (&euro;)</label>
+        <input id="kosten" type="number" min="0" step="0.01" value="600">
+      </div>
+    </div>
+    <button class="btn" id="btn-1">Aufteilung berechnen</button>
+    <div class="out" id="out-1" aria-live="polite"></div>
+  </div>
+  <p class="hint">Der Wert wird nach &sect;&nbsp;5 Abs.&nbsp;1 Satz&nbsp;3 CO2KostAufG auf die
+     <strong>erste Nachkommastelle</strong> gerundet und erst danach in die Tabelle eingeordnet.
+     Genau auf einer Stufengrenze gilt die h&ouml;here Stufe &ndash; die Anlage ist nach oben offen
+     formuliert (&bdquo;12 bis &lt;&nbsp;17&ldquo;).</p>
+
+  <h2 id="tabelle">2. Die amtliche Stufentabelle (Anlage zu &sect;&sect;&nbsp;5&ndash;7)</h2>
+  <div class="scroll">
+    <table id="tab">
+      <thead>
+        <tr><th>Spezifischer Aussto&szlig; (kg&nbsp;CO&#8322;/m&sup2;/a)</th>
+            <th class="num">Mieteranteil</th><th class="num">Vermieteranteil</th></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <p class="hint">Wortlaut und Grenzen sind aus dem amtlichen Text &uuml;bernommen
+     (<a href="https://www.gesetze-im-internet.de/co2kostaufg/anlage.html" rel="noopener">Anlage</a>, BGBl. I 2022, 2159). Zehn Stufen;
+     je schlechter die energetische Qualit&auml;t des Geb&auml;udes, desto gr&ouml;&szlig;er
+     der Vermieteranteil.</p>
+
+  <h2 id="preis">3. Ma&szlig;geblicher Zertifikatepreis 2026</h2>
+  <div class="card">
+    <p><strong>60,00&nbsp;&euro; je Tonne CO&#8322;</strong> (= 0,0600&nbsp;&euro;/kg) &ndash;
+       Bekanntmachung des Umweltbundesamts vom 16.12.2025.
+       Rechtsgrundlage: &sect;&nbsp;4 Abs.&nbsp;1 Nr.&nbsp;2 CO2KostAufG &ndash; f&uuml;r das Jahr 2026
+       der Mittelwert des Preiskorridors nach &sect;&nbsp;10 Abs.&nbsp;2 Satz&nbsp;4 BEHG
+       (55&ndash;65&nbsp;&euro;).</p>
+    <p class="hint">Die CO&#8322;-Kosten selbst stehen in der Brennstoff- bzw. W&auml;rmerechnung
+       (Menge &times; Emissionsfaktor &times; Preis). Diese Seite rechnet nur die
+       <em>Aufteilung</em> dieser Kosten, nicht ihre Ermittlung.</p>
+  </div>
+
+  <h2 id="regeln">4. Was gilt &ndash; und was nicht</h2>
+  <div class="card">
+    <h3>Ab 2027: anderer Preis, kein fester Wert</h3>
+    <p>F&uuml;r Jahre ab 2027 ist der ma&szlig;gebliche Preis <strong>nicht mehr</strong> der
+       Korridor-Mittelwert, sondern der <strong>Durchschnittspreis der Versteigerungen</strong> nach
+       &sect;&nbsp;10 Abs.&nbsp;1 BEHG im Zeitraum <strong>1.&nbsp;Juli bis 30.&nbsp;November des
+       Vorjahres</strong> (&sect;&nbsp;4 Abs.&nbsp;1 Nr.&nbsp;3 CO2KostAufG). Das Umweltbundesamt
+       ver&ouml;ffentlicht ihn <strong>sp&auml;testens zehn Werktage vor Beginn des
+       Kalenderjahres</strong> (&sect;&nbsp;4 Abs.&nbsp;2). Deshalb steht hier f&uuml;r 2027
+       bewusst <em>kein</em> Preis: ein geratener Wert w&auml;re falsch. Wer 2027 abrechnet,
+       muss die Bekanntmachung des UBA zugrunde legen.</p>
+    <h3>Verk&uuml;rzter Abrechnungszeitraum</h3>
+    <p>Ist ein Abrechnungszeitraum von unter einem Jahr vereinbart, sind die Werte der
+       Einstufungstabelle <strong>anteilig zu k&uuml;rzen</strong> (&sect;&nbsp;5 Abs.&nbsp;1
+       Satz&nbsp;4). Dieser Rechner geht von einem vollen Jahr aus.</p>
+    <h3>H&ouml;herer Mieteranteil per Vertrag ist unwirksam</h3>
+    <p>Vereinbarungen, nach denen der Mieter <strong>mehr</strong> als den nach &sect;&nbsp;5
+       Abs.&nbsp;2 auf ihn entfallenden Anteil tr&auml;gt, sind unwirksam (&sect;&nbsp;6
+       Abs.&nbsp;1).</p>
+    <h3>Fehlt die Angabe in der Abrechnung: 3&nbsp;Prozent</h3>
+    <p>Bestimmt der Vermieter den Mieteranteil nicht oder weist er die Einstufung und die
+       Berechnungsgrundlagen nicht aus, kann der Mieter den auf ihn entfallenden Anteil an den
+       <strong>Heizkosten um 3&nbsp;Prozent k&uuml;rzen</strong> (&sect;&nbsp;7 Abs.&nbsp;4
+       CO2KostAufG). Das ist der praktisch h&auml;ufigste Streitpunkt &ndash; und der Grund,
+       warum die Einstufung in der Abrechnung stehen muss (&sect;&nbsp;7 Abs.&nbsp;3).</p>
+    <h3>Nichtwohngeb&auml;ude: h&auml;lftig</h3>
+    <p>Bei Nichtwohngeb&auml;uden gilt nicht die Stufentabelle, sondern die h&auml;lftige
+       Aufteilung: der Mieter tr&auml;gt h&ouml;chstens <strong>50&nbsp;Prozent</strong>
+       (&sect;&nbsp;8 Abs.&nbsp;1), und bei eigener W&auml;rmeversorgung erstattet der Vermieter
+       50&nbsp;Prozent (&sect;&nbsp;8 Abs.&nbsp;2). &sect;&nbsp;8 Abs.&nbsp;4 k&uuml;ndigt ein
+       Stufenmodell f&uuml;r Nichtwohngeb&auml;ude an; die h&auml;lftige Aufteilung steht im
+       abgerufenen Gesetzestext weiterhin.</p>
+    <h3>Mieter versorgt sich selbst</h3>
+    <p>Versorgt sich der Mieter selbst mit W&auml;rme, ermittelt <em>er</em> den spezifischen
+       Aussto&szlig; und ordnet die Wohnung ein (&sect;&nbsp;5 Abs.&nbsp;3); der Vermieter muss
+       den auf ihn entfallenden Anteil erstatten (&sect;&nbsp;6 Abs.&nbsp;2), auf Antrag in
+       Textform binnen zw&ouml;lf Monaten.</p>
+    <h3>Seit wann gilt das?</h3>
+    <p>Die Aufteilungsvorschriften gelten f&uuml;r Abrechnungszeitr&auml;ume, die am oder nach dem
+       <strong>1.&nbsp;Januar 2023</strong> beginnen (&sect;&nbsp;11 Abs.&nbsp;2).</p>
+  </div>
+
+  <div class="cta">
+    <h3>Abrechnung lieber automatisch?</h3>
+    <p>Die <strong>Nebenkostenabrechnung 2026 (Excel)</strong> enth&auml;lt diese Stufen als
+       Formel, dazu die Umlageschl&uuml;ssel, Vorauszahlungen und die CO&#8322;-Aufteilung pro
+       Mieteinheit &ndash; sie rechnet die Betr&auml;ge, die hier nur aufgeteilt werden.</p>
+    <a class="btn" href="https://dongyang7.gumroad.com/l/jghil" rel="sponsored nofollow">Nebenkostenabrechnung 2026 ansehen (&euro;&nbsp;19)</a>
+    <p class="hint" style="margin-top:12px">Alle drei Vermieter-Vorlagen zusammen:
+       <a href="https://dongyang7.gumroad.com/l/mknvzt" rel="sponsored nofollow">Vermieter-Komplett im Set</a>.</p>
+  </div>
+
+  <p class="hint">&rarr; Weitere kostenlose Rechner (Fristen, Kleinunternehmer, E&Uuml;R, UStVA,
+     AfA &hellip;): <a href="https://ycyxyd.github.io/steuer-rechner/">Steuer-Rechner 2026</a> &middot;
+     Auslandsreise? <a href="https://ycyxyd.github.io/steuer-rechner/auslandspauschalen/">Verpflegungspauschalen f&uuml;r 166 L&auml;nder</a></p>
+
+  <div class="foot">
+    Datenquelle Stufen: Anlage zu &sect;&sect;&nbsp;5&ndash;7 CO2KostAufG (BGBl. I 2022, 2159,
+    <a href="https://www.gesetze-im-internet.de/co2kostaufg/anlage.html" rel="noopener">gesetze-im-internet.de</a>).
+    Datenquelle Preis: <a href="https://www.dehst.de/SharedDocs/news/DE/kostenaufteilungsgesetz.html" rel="noopener">Bekanntmachung des Umweltbundesamts
+    vom 16.12.2025</a>. Diese Seite ist eine unverbindliche Arbeitshilfe und ersetzt keine
+    Steuer- oder Rechtsberatung; f&uuml;r verbindliche Ausk&uuml;nfte ist der amtliche Text
+    ma&szlig;geblich.
+  </div>
+</div>
+<script id="engine">
+/* Engine: offline & deterministisch. Getestet von tool/test_co2_page.js */
+var DATA = {"jahr":2026,"preis":60.0,"rows":[{"hi":12,"lo":null,"m":100,"v":0,"wort":"< 12"},{"hi":17,"lo":12,"m":90,"v":10,"wort":"12 bis < 17"},{"hi":22,"lo":17,"m":80,"v":20,"wort":"17 bis < 22"},{"hi":27,"lo":22,"m":70,"v":30,"wort":"22 bis < 27"},{"hi":32,"lo":27,"m":60,"v":40,"wort":"27 bis < 32"},{"hi":37,"lo":32,"m":50,"v":50,"wort":"32 bis < 37"},{"hi":42,"lo":37,"m":40,"v":60,"wort":"37 bis < 42"},{"hi":47,"lo":42,"m":30,"v":70,"wort":"42 bis < 47"},{"hi":52,"lo":47,"m":20,"v":80,"wort":"47 bis < 52"},{"hi":null,"lo":52,"m":5,"v":95,"wort":">= 52"}]};
+
+/* Paragraph 5 Abs. 1 Satz 3 CO2KostAufG: Rundung auf die ERSTE Nachkommastelle,
+   kaufmaennisch (halb aufwaerts), auf der kuerzesten Dezimaldarstellung - exakt wie
+   tool/co2_kostaufg.rundung() (Decimal(repr(x)) + ROUND_HALF_UP).
+   Ehrliche Anmerkung (Klasse 54): die naheliegende Kurzform Math.round(x*10)/10 ist auf
+   unserem Wertebereich NICHT falsch - ein Probelauf ueber 600 000 Werte (0-600, 0,001-
+   Schritt) plus die ueblichen "Boesewichte" (1.005 / 2.675 / 8.835 / 11.95) ergab NULL
+   Abweichungen. Die String-Variante steht hier trotzdem, weil sie dieselbe Regel
+   ausdrueckt wie die Python-Seite (Ziffern der Dezimaldarstellung, nicht Binaerprodukt),
+   und weil tool/verify_co2_page_parity.py beide Engines auf 6600 Werten gegeneinander
+   laufen laesst. Die Behauptung "Math.round ist hier kaputt" waere nicht belegbar. */
+function zehntel(x) {
+  var neg = Number(x) < 0;
+  var a = Math.abs(Number(x));
+  var s = String(a);
+  if (s.indexOf("e") >= 0) { s = a.toFixed(10); }
+  var teile = s.split(".");
+  var ganz = teile[0], bruch = (teile[1] || "") + "00";
+  var t = parseInt(ganz, 10) * 10 + parseInt(bruch.charAt(0), 10);
+  if (parseInt(bruch.charAt(1), 10) >= 5) { t += 1; }
+  return (neg ? -t : t) / 10;
+}
+
+/* Paragraph 5 Abs. 2 CO2KostAufG: Einordnung in die Anlage. Intervalle sind nach oben offen. */
+function stufe(kg) {
+  var w = zehntel(kg);
+  for (var i = 0; i < DATA.rows.length; i++) {
+    var r = DATA.rows[i];
+    if ((r.lo === null || w >= r.lo) && (r.hi === null || w < r.hi)) {
+      return { gerundet: w, index: i, wort: r.wort, mieter: r.m, vermieter: r.v };
+    }
+  }
+  throw new Error("keine Stufe fuer " + kg);
+}
+
+/* Aufteilung: Mieteranteil in Euro, der Rest bleibt beim Vermieter.
+   In Cent gerechnet, damit Mieter + Vermieter exakt die Kosten ergeben (kein verlorener Cent). */
+function aufteilen(kg, kosten) {
+  var s = stufe(kg);
+  var k = Math.max(0, Number(kosten) || 0);
+  var cent = Math.round(k * 100);
+  var mieterCent = Math.round(cent * s.mieter / 100);
+  return { gerundet: s.gerundet, index: s.index, wort: s.wort, mieter: s.mieter,
+           vermieter: s.vermieter, kosten: cent / 100,
+           mieterEur: mieterCent / 100, vermieterEur: (cent - mieterCent) / 100 };
+}
+
+function eur(n) {
+  return (Math.round(n * 100) / 100).toFixed(2).replace(".", ",") + " \u20ac";
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { DATA: DATA, stufe: stufe, aufteilen: aufteilen, zehntel: zehntel, eur: eur };
+}
+</script>
+<script>
+(function () {
+  var tbody = document.getElementById("tbody");
+
+  function fmt(n) { return (Math.round(n * 100) / 100).toFixed(2).replace(".", ","); }
+
+  function grenze(r) {
+    if (r.lo === null) { return "unter " + r.hi; }
+    if (r.hi === null) { return "ab " + r.lo; }
+    return r.lo + " bis unter " + r.hi;
+  }
+
+  var html = "";
+  DATA.rows.forEach(function (r) {
+    html += "<tr><td>" + grenze(r) + ' <span class="hint">(' + r.wort + ")</span></td>" +
+            '<td class="num">' + r.m + " %</td>" +
+            '<td class="num">' + r.v + " %</td></tr>";
+  });
+  tbody.innerHTML = html;
+
+  document.getElementById("btn-1").addEventListener("click", function () {
+    var kg = parseFloat(document.getElementById("kg").value || "0");
+    var kosten = parseFloat(document.getElementById("kosten").value || "0");
+    var o = document.getElementById("out-1");
+    if (isNaN(kg) || kg < 0) {
+      o.innerHTML = '<p class="hint">Bitte einen Wert ab 0 eingeben.</p>';
+      return;
+    }
+    var r = aufteilen(kg, kosten);
+    var trs = tbody.querySelectorAll("tr");
+    for (var i = 0; i < trs.length; i++) { trs[i].className = (i === r.index) ? "hit" : ""; }
+    o.innerHTML = "" +
+      '<div class="row"><span class="k">Spezifischer Aussto&szlig; (gerundet)</span><span class="v">' +
+        fmt(r.gerundet) + " kg CO&#8322;/m&sup2;/a</span></div>" +
+      '<div class="row"><span class="k">Stufe der Anlage</span><span class="v">' + r.wort + "</span></div>" +
+      '<div class="row"><span class="k">Mieteranteil</span><span class="v">' + r.mieter + " %</span></div>" +
+      '<div class="row"><span class="k">Vermieteranteil</span><span class="v">' + r.vermieter + " %</span></div>" +
+      '<div class="row"><span class="k">CO&#8322;-Kosten gesamt</span><span class="v">' + fmt(r.kosten) + " &euro;</span></div>" +
+      '<div class="row"><span class="k">davon Mieter</span><span class="v">' + fmt(r.mieterEur) + " &euro;</span></div>" +
+      '<div class="row total"><span class="k"><strong>davon Vermieter</strong></span><span class="v">' +
+        fmt(r.vermieterEur) + " &euro;</span></div>" +
+      '<p class="hint">Ohne Gew&auml;hr &ndash; keine Steuer- oder Rechtsberatung. Aufteilung nach ' +
+      "&sect;&nbsp;5 Abs.&nbsp;2 CO2KostAufG und der Anlage zu &sect;&sect;&nbsp;5&ndash;7; der Wert " +
+      "ist nach &sect;&nbsp;5 Abs.&nbsp;1 Satz&nbsp;3 auf eine Nachkommastelle gerundet.</p>";
+  });
+})();
+</script>
+</body>
+</html>
