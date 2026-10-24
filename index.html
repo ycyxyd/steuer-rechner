@@ -1196,7 +1196,7 @@ function renderUst() {
 function renderReise() {
   var r = reisekosten(el("re-voll").value, el("re-teil").value, el("re-km").value, el("re-satz").value);
   var html = row("Verpflegungspauschale", fmtEur(r.verpflegung));
-  html += row("Fahrtkosten (" + String(r.satz).replace(".", ",") + " &euro;/km)", fmtEur(r.fahrt));
+  html += row("Fahrtkosten (0,30 &euro;/km)", fmtEur(r.fahrt));
   html += row("<strong>Summe</strong>", "<strong>" + fmtEur(r.summe) + "</strong>");
   html += '<p class="fine">&sect;&nbsp;9 Abs. 4a EStG: 28 &euro; pro vollem Kalendertag, 14 &euro; f&uuml;r An- und Abreisetag. '
         + 'F&uuml;r die Kilometers&auml;tze verweist &sect;&nbsp;9 Abs.&nbsp;1 Nr.&nbsp;4a EStG auf die h&ouml;chste Wegstreckenentsch&auml;digung nach dem Bundesreisekostengesetz (BRKG); '
